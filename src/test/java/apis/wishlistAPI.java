@@ -1,0 +1,42 @@
+package apis;
+
+import static io.restassured.RestAssured.*;
+import constants.Endpoints;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+import payloads.WishListPayload;
+
+public class wishlistAPI {
+	
+	public Response addToFav(RequestSpecification reqspec, WishListPayload payload, String cookiename, String authToken)
+	{
+		return given()
+				.spec(reqspec)
+				.header("Origin",
+		                "https://adobe-eyeplus.newstore.co.in")
+		        .header("Referer",
+		                "https://adobe-eyeplus.newstore.co.in/")
+				 .cookie(
+			                "customerHash",
+			                cookiename)
+			        .cookie(
+			                "adobe_tep_next_auth_token",
+			                authToken)
+			        .cookie(
+			                "user_login_success",
+			                "1")
+			        .cookie("clientId",
+			                "d65fe87f-d63b-44c6-9111-d05dcdc2ca12")
+			        .cookie("moe_uuid",
+			                "0c7dcb97-06d1-4273-9866-43a6c751bdc9")
+				.body(payload)
+				
+			   .when()
+			     .post(Endpoints.addToFav)
+		         .then()
+                 .log().all()
+                 .extract()
+                 .response();
+	}
+
+}

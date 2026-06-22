@@ -24,4 +24,13 @@ public class loginAPI {
 			.when()
 			    .post(Endpoints.verifyOTP);
 	}
+	
+	public Response checkSessionAPI(RequestSpecification reqSpec, String customerCookie)
+	{
+		return given()
+				.spec(reqSpec)
+				.cookie( "customerHash", customerCookie)
+			   .when()
+			    .get(Endpoints.checkSession);
+	}
 }
