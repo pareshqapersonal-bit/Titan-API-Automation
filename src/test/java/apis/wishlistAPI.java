@@ -5,11 +5,23 @@ import constants.Endpoints;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import payloads.WishListPayload;
+import utilities.APILogger;
 
 public class wishlistAPI {
 	
 	public Response addToFav(RequestSpecification reqspec, WishListPayload payload, String cookiename, String authToken)
 	{
+		//for apilogger
+		String requestBody =
+		        "{ \"product_id\" : \""
+		        + payload.getProductId()
+		        + "\" }";
+
+		APILogger.setRequest(
+		        requestBody);
+		
+		
+		
 		return given()
 				.spec(reqspec)
 				.header("Origin",
