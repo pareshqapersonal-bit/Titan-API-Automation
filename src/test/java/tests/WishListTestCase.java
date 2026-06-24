@@ -22,7 +22,7 @@ public class WishListTestCase extends BaseTest {
 	Response response;
 	
 	
-	@Test
+	@Test(description = "TC_003-Testing the wishlist APIs")
 	public void wishlistSteps()
 	{
 		/*
@@ -85,7 +85,7 @@ public class WishListTestCase extends BaseTest {
 		}else {
 			Assert.assertTrue(status.equalsIgnoreCase("true"), "Something went wrong");
 		}
-		
+			
 	}
 	
 

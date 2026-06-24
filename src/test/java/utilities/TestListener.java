@@ -46,13 +46,22 @@ public class TestListener implements ITestListener {
 	public void onTestSuccess(
 	        ITestResult result) {
 
-	    test.get()
-	        .pass(
-	                "Test Passed");
+		 test.get().pass("Test Passed");
+		   test.get().info("<b>EndPoint:</b><pre> "+APILogger.getEndpoint()+"</pre>");
 
-	    System.out.println(
-	            result.getName()
-	            + " Passed");
+		   test.get().info(
+				    "<b>Request:</b><br><pre>"
+				    + APILogger.getRequest()
+				    + "</pre>");
+		    
+		    test.get().info("<b>Status code:</b><pre> "+APILogger.getStatusCode()+"</pre>");
+
+		    test.get().info(
+		    	    "<b>Response:</b><br><pre>"
+		    	    + APILogger.getResponse()
+		    	    + "</pre>");
+
+		    APILogger.clear();
 	}
 	
 	@Override

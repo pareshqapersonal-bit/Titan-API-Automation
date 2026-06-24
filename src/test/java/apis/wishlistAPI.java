@@ -20,9 +20,9 @@ public class wishlistAPI {
 		APILogger.setRequest(
 		        requestBody);
 		
+		APILogger.setEndpoint(Endpoints.addToFav);
 		
-		
-		return given()
+	Response response= given()
 				.spec(reqspec)
 				.header("Origin",
 		                "https://adobe-eyeplus.newstore.co.in")
@@ -49,6 +49,13 @@ public class wishlistAPI {
                  .log().all()
                  .extract()
                  .response();
+	
+	APILogger.setStatusCode(response.getStatusCode());
+	APILogger.setResponse(
+            response.asPrettyString());
+
+    return response;
+	
 	}
 
 }

@@ -22,7 +22,7 @@ public class Login extends BaseTest{
 	private String customerHash;
 	loginAPI sendOtp = new loginAPI();
 	
-	@Test
+	@Test(description = "TC_001-Send OTP API testing")
 	public void stepsofSendOTP()
 	{
 		VerifyOtpPayload vop = new VerifyOtpPayload();
@@ -36,7 +36,7 @@ public class Login extends BaseTest{
 		
 	}
 	
-	@Test(dependsOnMethods = "stepsofSendOTP")
+	@Test(dependsOnMethods = "stepsofSendOTP", description = "TC_002-Verify OTP API testing")
 	public void steps()
 	{
 		
