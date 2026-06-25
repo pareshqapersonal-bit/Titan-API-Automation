@@ -58,4 +58,107 @@ public class wishlistAPI {
 	
 	}
 
+	
+	/**
+	 * @param rspec
+	 * @param customerHash
+	 * @param authToken
+	 * @return
+	 */
+	public Response getWatchlist(RequestSpecification rspec, String customerHash, String authToken)
+	{
+		System.out.println("customerHash = " + customerHash);
+		System.out.println("authToken = " + authToken);
+		
+		String requestBody =
+		        "{}";
+
+		APILogger.setRequest(
+		        requestBody);
+		
+		APILogger.setEndpoint(Endpoints.getWishList);
+		Response response= given()
+				.spec(rspec)
+				.header("Origin",
+		                "https://adobe-eyeplus.newstore.co.in")
+		        .header("Referer",
+		                "https://adobe-eyeplus.newstore.co.in/")
+				 .cookie(
+			                "customerHash",
+			                customerHash)
+			        .cookie(
+			                "adobe_tep_next_auth_token",
+			                authToken)
+			        .cookie(
+			                "user_login_success",
+			                "1")
+			        .cookie("clientId",
+			                "d65fe87f-d63b-44c6-9111-d05dcdc2ca12")
+			        .cookie("moe_uuid",
+			                "0c7dcb97-06d1-4273-9866-43a6c751bdc9")
+				              .body("{}")
+				           .when()
+				              .post(Endpoints.getWishList)
+				            .then()
+				               .log().all()
+				               .extract()
+				               .response();
+		
+		APILogger.setStatusCode(response.getStatusCode());
+		APILogger.setResponse(
+	            response.asPrettyString());
+
+	    return response;
+				
+				
+	}
+	
+	public Response removeFromFav(RequestSpecification reqspec,WishListPayload payload, String customerHash,String authToken)
+	{
+		//for apilogger
+				String requestBody =
+				        "{ \"product_id\" : \""
+				        + payload.getProductId()
+				        + "\" }";
+
+				APILogger.setRequest(
+				        requestBody);
+				
+				APILogger.setEndpoint(Endpoints.addToFav);
+				
+			Response response= given()
+						.spec(reqspec)
+						.header("Origin",
+				                "https://adobe-eyeplus.newstore.co.in")
+				        .header("Referer",
+				                "https://adobe-eyeplus.newstore.co.in/")
+						 .cookie(
+					                "customerHash",
+					                customerHash)
+					        .cookie(
+					                "adobe_tep_next_auth_token",
+					                authToken)
+					        .cookie(
+					                "user_login_success",
+					                "1")
+					        .cookie("clientId",
+					                "d65fe87f-d63b-44c6-9111-d05dcdc2ca12")
+					        .cookie("moe_uuid",
+					                "0c7dcb97-06d1-4273-9866-43a6c751bdc9")
+						.body(payload)
+						
+					   .when()
+					     .post(Endpoints.removeFromFav)
+				         .then()
+		                 .log().all()
+		                 .extract()
+		                 .response();
+			
+			APILogger.setStatusCode(response.getStatusCode());
+			APILogger.setResponse(
+		            response.asPrettyString());
+
+		    return response;
+		
+	}
 }

@@ -6,6 +6,7 @@
       <class name="tests.WishListTestCase">
         <methods>
           <include name="setUP"/>
+          <include name="RemoveFromwishlistSteps"/>
           <include name="wishlistSteps"/>
         </methods>
       </class> <!-- tests.WishListTestCase -->

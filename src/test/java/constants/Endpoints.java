@@ -8,6 +8,7 @@ public final class Endpoints {
 	public static final String verifyOTP ="api/auth/verify-otp";
 	public static final String addToFav="api/cart/add-to-favorites";
 	public static final String checkSession="api/auth/check-session";
-	
+	public static final String getWishList="api/my-accounts/wishlist";
+	public static final String removeFromFav="api/cart/remove-from-favorites";
 	
 }

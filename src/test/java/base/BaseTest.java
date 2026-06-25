@@ -46,7 +46,7 @@ public class BaseTest {
 	            response.getCookie(
 	                    "customerHash"));
 
-	    SessionManager.getauthToken(
+	    SessionManager.setauthToken(
 	            response.getCookie(
 	                    "adobe_tep_next_auth_token"));
 	}

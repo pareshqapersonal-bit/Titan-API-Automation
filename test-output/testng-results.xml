@@ -2,34 +2,28 @@
 <testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-06-24T17:20:48 IST" name="Titan API Automation" finished-at="2026-06-24T17:20:59 IST" duration-ms="11283">
+  <suite started-at="2026-06-25T16:41:29 IST" name="Default suite" finished-at="2026-06-25T16:41:37 IST" duration-ms="7642">
     <groups>
     </groups>
-    <test started-at="2026-06-24T17:20:48 IST" name="Regression Tests" finished-at="2026-06-24T17:20:59 IST" duration-ms="11283">
+    <test started-at="2026-06-25T16:41:29 IST" name="Default test" finished-at="2026-06-25T16:41:37 IST" duration-ms="7642">
       <class name="tests.WishListTestCase">
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.WishListTestCase@130161f7]" started-at="2026-06-24T17:20:57 IST" name="setUP" finished-at="2026-06-24T17:20:59 IST" duration-ms="2543" status="PASS">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.WishListTestCase@28eaa59a]" started-at="2026-06-25T16:41:29 IST" name="setUP" finished-at="2026-06-25T16:41:34 IST" duration-ms="4988" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="wishlistSteps()[pri:0, instance:tests.WishListTestCase@130161f7]" started-at="2026-06-24T17:20:59 IST" name="wishlistSteps" description="TC_002-Testing the wishlist APIs" finished-at="2026-06-24T17:20:59 IST" duration-ms="271" status="PASS">
+        <test-method signature="getWatchlistSteps()[pri:0, instance:tests.WishListTestCase@28eaa59a]" started-at="2026-06-25T16:41:34 IST" name="getWatchlistSteps" description="TC_003-Testing the wishlist list API" finished-at="2026-06-25T16:41:36 IST" duration-ms="1592" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getWatchlistSteps -->
+        <test-method signature="RemoveFromwishlistSteps()[pri:0, instance:tests.WishListTestCase@28eaa59a]" started-at="2026-06-25T16:41:36 IST" name="RemoveFromwishlistSteps" description="TC_004-Testing the Remove from wishlist API" finished-at="2026-06-25T16:41:36 IST" depends-on-methods="tests.WishListTestCase.getWatchlistSteps" duration-ms="758" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- RemoveFromwishlistSteps -->
+        <test-method signature="wishlistSteps()[pri:0, instance:tests.WishListTestCase@28eaa59a]" started-at="2026-06-25T16:41:36 IST" name="wishlistSteps" description="TC_005-Testing the Add to wishlist API" finished-at="2026-06-25T16:41:37 IST" depends-on-methods="tests.WishListTestCase.RemoveFromwishlistSteps" duration-ms="251" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- wishlistSteps -->
       </class> <!-- tests.WishListTestCase -->
-      <class name="tests.Login">
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.Login@647e447]" started-at="2026-06-24T17:20:48 IST" name="setUP" finished-at="2026-06-24T17:20:53 IST" duration-ms="4807" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUP -->
-        <test-method signature="stepsofSendOTP()[pri:0, instance:tests.Login@647e447]" started-at="2026-06-24T17:20:53 IST" name="stepsofSendOTP" description="TC_001-Send OTP API testing" finished-at="2026-06-24T17:20:53 IST" duration-ms="454" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- stepsofSendOTP -->
-        <test-method signature="steps()[pri:0, instance:tests.Login@647e447]" started-at="2026-06-24T17:20:53 IST" name="steps" description="TC_002-Verify OTP API testing" finished-at="2026-06-24T17:20:57 IST" depends-on-methods="tests.Login.stepsofSendOTP" duration-ms="3149" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- steps -->
-      </class> <!-- tests.Login -->
-    </test> <!-- Regression Tests -->
-  </suite> <!-- Titan API Automation -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

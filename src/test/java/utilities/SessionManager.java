@@ -20,7 +20,7 @@ public class SessionManager {
 		return authToken;
 	}
 	
-	public static void getauthToken(String authToken)
+	public static void setauthToken(String authToken)
 	{
 		SessionManager.authToken= authToken;
 	}
