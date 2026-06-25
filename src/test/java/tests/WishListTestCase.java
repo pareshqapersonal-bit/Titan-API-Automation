@@ -1,6 +1,9 @@
 package tests;
 
 import static org.testng.Assert.assertTrue;
+
+import java.util.List;
+
 import org.testng.annotations.Listeners;
 
 import org.testng.Assert;
@@ -18,19 +21,24 @@ import utilities.SessionManager;
 
 @Listeners(utilities.TestListener.class)
 public class WishListTestCase extends BaseTest {
-	
+	private String productID;
 	Response response;
 	
-	
-	@Test(description = "TC_003-Testing the wishlist APIs")
-	public void wishlistSteps()
+	@Test(description = "TC_003-Testing the wishlist list API")
+	public void getWatchlistSteps()
 	{
 		/*
-		 * loginAPI lapi = new loginAPI();
+		 * String customerHash; loginAPI lapi = new loginAPI();
 		 * 
 		 * VerifyOtpPayload vop = new VerifyOtpPayload(); vop.setMoble_no("8698294937");
 		 * lapi.sendOtp(reqspec, vop); vop.setMoble_no("8698294937");
 		 * vop.setOtp("254265"); response= lapi.verifyOtp(reqspec, vop); customerHash =
+		 * response.jsonPath().getString("customerHash");
+		 * 
+		 * String authToken = response.getCookie("adobe_tep_next_auth_token");
+		 * 
+		 * SessionManager.setCustomerHash(customerHash);
+		 * SessionManager.setauthToken(authToken); customerHash =
 		 * response.jsonPath().getString("customerHash");
 		 * System.out.println("custmerhash is"+customerHash);
 		 * 
@@ -40,9 +48,121 @@ public class WishListTestCase extends BaseTest {
 		 * 
 		 * System.out.println( response.getDetailedCookies());
 		 * 
-		 * String authToken = response.getCookie( "adobe_tep_next_auth_token");
+		 * authToken = response.getCookie( "adobe_tep_next_auth_token");
 		 * System.out.println("token is"+ authToken);
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * customerHash = SessionManager.getCustomerHash();
+		 * 
+		 * authToken = SessionManager.getauthToken();
 		 */
+		
+		String customerHash =
+		        SessionManager.getCustomerHash();
+
+		String authToken =
+		        SessionManager.getauthToken();
+		wishlistAPI wapi = new wishlistAPI();
+		System.out.println("customerHash = " + customerHash);
+		System.out.println("authToken = " + authToken);
+		wapi.getWatchlist(reqspec, customerHash, authToken);
+		response= wapi.getWatchlist(reqspec, customerHash,authToken);
+		System.out.println(response.getStatusCode());
+		System.out.println(response.getBody().asPrettyString());
+		String status=response.jsonPath().getString("status");
+		String message=response.jsonPath().getString("message");
+		
+	}
+	
+	@Test(dependsOnMethods = "getWatchlistSteps",description = "TC_004-Testing the Remove from wishlist API")
+	public void RemoveFromwishlistSteps()
+	{
+		/*
+		  loginAPI lapi = new loginAPI();
+		  
+		  VerifyOtpPayload vop = new VerifyOtpPayload(); vop.setMoble_no("8698294937");
+		  lapi.sendOtp(reqspec, vop); vop.setMoble_no("8698294937");
+		  vop.setOtp("254265"); response= lapi.verifyOtp(reqspec, vop); customerHash =
+		  response.jsonPath().getString("customerHash");
+		  System.out.println("custmerhash is"+customerHash);
+		  
+		  System.out.println( response.getHeaders());
+		  
+		  System.out.println( response.getCookies());
+		  
+		  System.out.println( response.getDetailedCookies());
+		  
+		  String authToken = response.getCookie( "adobe_tep_next_auth_token");
+		  System.out.println("token is"+ authToken);
+		 
+		
+		/*
+		 * response = lapi.checkSessionAPI(reqspec,customerHash);
+		 * 
+		 * 
+		 * 
+		 * 
+		 * System.out.println( "Status : " + response.getStatusCode());
+		 * 
+		 * System.out.println( "Headers : " + response.getHeaders());
+		 * 
+		 * System.out.println( "Cookies : " + response.getCookies());
+		 * 
+		 * response.prettyPrint();
+		 * 
+		 * 
+		 * 
+		 * 
+		 * String cookie = response.getCookie("adobe_tep_next_auth_token");
+		 * System.out.println("cookie name is"+ cookie);
+		 */
+		
+		String customerHash =
+		        SessionManager.getCustomerHash();
+
+		String authToken =
+		        SessionManager.getauthToken();
+		wishlistAPI wapi = new wishlistAPI();
+		response=wapi.getWatchlist(reqspec, customerHash, authToken);
+		List<String> productIds =
+		        response.jsonPath().getList("data.product_id");
+		 productID= productIds.get(0);
+		WishListPayload wp= new WishListPayload();
+		wp.setProductId(productID);
+		response= wapi.removeFromFav(reqspec, wp, customerHash,authToken);
+		System.out.println(response.getStatusCode());
+		System.out.println(response.getBody().asPrettyString());
+		String status=response.jsonPath().getString("status");
+		String message=response.jsonPath().getString("message");
+		
+		
+			
+	}
+	
+	@Test(dependsOnMethods = "RemoveFromwishlistSteps",description = "TC_005-Testing the Add to wishlist API")
+	public void wishlistSteps()
+	{
+		/*
+		  loginAPI lapi = new loginAPI();
+		  
+		  VerifyOtpPayload vop = new VerifyOtpPayload(); vop.setMoble_no("8698294937");
+		  lapi.sendOtp(reqspec, vop); vop.setMoble_no("8698294937");
+		  vop.setOtp("254265"); response= lapi.verifyOtp(reqspec, vop); customerHash =
+		  response.jsonPath().getString("customerHash");
+		  System.out.println("custmerhash is"+customerHash);
+		  
+		  System.out.println( response.getHeaders());
+		  
+		  System.out.println( response.getCookies());
+		  
+		  System.out.println( response.getDetailedCookies());
+		  
+		  String authToken = response.getCookie( "adobe_tep_next_auth_token");
+		  System.out.println("token is"+ authToken);
+		 
 		
 		/*
 		 * response = lapi.checkSessionAPI(reqspec,customerHash);
@@ -72,7 +192,7 @@ public class WishListTestCase extends BaseTest {
 		        SessionManager.getauthToken();
 		wishlistAPI wapi = new wishlistAPI();
 		WishListPayload wp= new WishListPayload();
-		wp.setProductId("2029");
+		wp.setProductId(productID);
 		response= wapi.addToFav(reqspec, wp, customerHash,authToken);
 		System.out.println(response.getStatusCode());
 		System.out.println(response.getBody().asPrettyString());
