@@ -3,13 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.WishListTestCase">
+      <class name="ProductListingPageTest">
         <methods>
           <include name="setUP"/>
-          <include name="RemoveFromwishlistSteps"/>
-          <include name="wishlistSteps"/>
+          <include name="productListingTE" invocation-numbers="7"/>
         </methods>
-      </class> <!-- tests.WishListTestCase -->
+      </class> <!-- ProductListingPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

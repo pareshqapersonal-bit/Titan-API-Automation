@@ -1,29 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+<testng-results ignored="0" total="8" passed="8" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-06-25T16:41:29 IST" name="Default suite" finished-at="2026-06-25T16:41:37 IST" duration-ms="7642">
+  <suite started-at="2026-06-26T17:13:06 IST" name="Default suite" finished-at="2026-06-26T17:13:26 IST" duration-ms="19944">
     <groups>
     </groups>
-    <test started-at="2026-06-25T16:41:29 IST" name="Default test" finished-at="2026-06-25T16:41:37 IST" duration-ms="7642">
-      <class name="tests.WishListTestCase">
-        <test-method is-config="true" signature="setUP()[pri:0, instance:tests.WishListTestCase@28eaa59a]" started-at="2026-06-25T16:41:29 IST" name="setUP" finished-at="2026-06-25T16:41:34 IST" duration-ms="4988" status="PASS">
+    <test started-at="2026-06-26T17:13:06 IST" name="Default test" finished-at="2026-06-26T17:13:26 IST" duration-ms="19944">
+      <class name="ProductListingPageTest">
+        <test-method is-config="true" signature="setUP()[pri:0, instance:ProductListingPageTest@647e447]" started-at="2026-06-26T17:13:06 IST" name="setUP" finished-at="2026-06-26T17:13:24 IST" duration-ms="18151" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP -->
-        <test-method signature="getWatchlistSteps()[pri:0, instance:tests.WishListTestCase@28eaa59a]" started-at="2026-06-25T16:41:34 IST" name="getWatchlistSteps" description="TC_003-Testing the wishlist list API" finished-at="2026-06-25T16:41:36 IST" duration-ms="1592" status="PASS">
+        <test-method signature="productListingTE(java.lang.String)[pri:0, instance:ProductListingPageTest@647e447]" started-at="2026-06-26T17:13:24 IST" name="productListingTE" data-provider="getProducts" finished-at="2026-06-26T17:13:25 IST" duration-ms="409" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Eyeglasses]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- getWatchlistSteps -->
-        <test-method signature="RemoveFromwishlistSteps()[pri:0, instance:tests.WishListTestCase@28eaa59a]" started-at="2026-06-25T16:41:36 IST" name="RemoveFromwishlistSteps" description="TC_004-Testing the Remove from wishlist API" finished-at="2026-06-25T16:41:36 IST" depends-on-methods="tests.WishListTestCase.getWatchlistSteps" duration-ms="758" status="PASS">
+        </test-method> <!-- productListingTE -->
+        <test-method signature="productListingTE(java.lang.String)[pri:0, instance:ProductListingPageTest@647e447]" started-at="2026-06-26T17:13:25 IST" name="productListingTE" data-provider="getProducts" finished-at="2026-06-26T17:13:25 IST" duration-ms="96" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Sunglasses]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- RemoveFromwishlistSteps -->
-        <test-method signature="wishlistSteps()[pri:0, instance:tests.WishListTestCase@28eaa59a]" started-at="2026-06-25T16:41:36 IST" name="wishlistSteps" description="TC_005-Testing the Add to wishlist API" finished-at="2026-06-25T16:41:37 IST" depends-on-methods="tests.WishListTestCase.RemoveFromwishlistSteps" duration-ms="251" status="PASS">
+        </test-method> <!-- productListingTE -->
+        <test-method signature="productListingTE(java.lang.String)[pri:0, instance:ProductListingPageTest@647e447]" started-at="2026-06-26T17:13:25 IST" name="productListingTE" data-provider="getProducts" finished-at="2026-06-26T17:13:25 IST" duration-ms="97" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Computer glasses]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- wishlistSteps -->
-      </class> <!-- tests.WishListTestCase -->
+        </test-method> <!-- productListingTE -->
+        <test-method signature="productListingTE(java.lang.String)[pri:0, instance:ProductListingPageTest@647e447]" started-at="2026-06-26T17:13:25 IST" name="productListingTE" data-provider="getProducts" finished-at="2026-06-26T17:13:25 IST" duration-ms="72" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Powered Sunglasses]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- productListingTE -->
+        <test-method signature="productListingTE(java.lang.String)[pri:0, instance:ProductListingPageTest@647e447]" started-at="2026-06-26T17:13:25 IST" name="productListingTE" data-provider="getProducts" finished-at="2026-06-26T17:13:25 IST" duration-ms="80" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Contact Lenses]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- productListingTE -->
+        <test-method signature="productListingTE(java.lang.String)[pri:0, instance:ProductListingPageTest@647e447]" started-at="2026-06-26T17:13:25 IST" name="productListingTE" data-provider="getProducts" finished-at="2026-06-26T17:13:25 IST" duration-ms="76" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Ready reader]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- productListingTE -->
+        <test-method signature="productListingTE(java.lang.String)[pri:0, instance:ProductListingPageTest@647e447]" started-at="2026-06-26T17:13:25 IST" name="productListingTE" data-provider="getProducts" finished-at="2026-06-26T17:13:25 IST" duration-ms="83" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Smart glasses]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- productListingTE -->
+        <test-method signature="productListingTE(java.lang.String)[pri:0, instance:ProductListingPageTest@647e447]" started-at="2026-06-26T17:13:25 IST" name="productListingTE" data-provider="getProducts" finished-at="2026-06-26T17:13:26 IST" duration-ms="682" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Accessories]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- productListingTE -->
+      </class> <!-- ProductListingPageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
