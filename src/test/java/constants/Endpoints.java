@@ -10,5 +10,12 @@ public final class Endpoints {
 	public static final String checkSession="api/auth/check-session";
 	public static final String getWishList="api/my-accounts/wishlist";
 	public static final String removeFromFav="api/cart/remove-from-favorites";
-	
+	public static final String getSunglassProducts="api/products/get-list/sunglasses";
+	public static final String getEyeglassProducts="api/products/get-list/eyeglasses";
+	public static final String getPoweredSunglassesProducts="api/products/get-list/power-sunglasses";
+	public static final String getComputerGlassesProducts="api/products/get-list/computer-glasses";
+	public static final String getContactLenseProducts="api/products/get-list/contact-lenses";
+    public static final String getAccessoriesProducts="api/products/get-list/accessories";
+    public static final String getReadyReaderProducts="api/products/get-list/ready-readers";
+    public static final String getSmartGlassesProducts="api/products/get-list/sunglasses/collection/smart_sunglasses";
 }
