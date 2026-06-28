@@ -4,12 +4,13 @@ import static io.restassured.RestAssured.*;
 import constants.Endpoints;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import payloads.WishListPayload;
+import payloads.ProductPayload;
+
 import utilities.APILogger;
 
 public class wishlistAPI {
 	
-	public Response addToFav(RequestSpecification reqspec, WishListPayload payload, String cookiename, String authToken)
+	public Response addToFav(RequestSpecification reqspec, ProductPayload payload, String cookiename, String authToken)
 	{
 		//for apilogger
 		String requestBody =
@@ -113,7 +114,7 @@ public class wishlistAPI {
 				
 	}
 	
-	public Response removeFromFav(RequestSpecification reqspec,WishListPayload payload, String customerHash,String authToken)
+	public Response removeFromFav(RequestSpecification reqspec,ProductPayload payload, String customerHash,String authToken)
 	{
 		//for apilogger
 				String requestBody =
