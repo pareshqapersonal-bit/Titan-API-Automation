@@ -7,7 +7,13 @@
         <classes>
             <class name="tests.Login"/>
             <class name="tests.WishListTestCase"/>
-             
+            <class name="tests.ProductListingPageTest"/>
+            <class name="tests.LensDetailsTest"/>
+             <class name="tests.GetLensAddOnTest"></class>
+             <class name="tests.AddToCartEyeglassesAPITest"></class>
+             <class name="tests.AddToCartSunglassesApiTest"></class>
+             <class name="tests.TestEsimationDatesAPITest"></class>
+             <class name="tests.GetStoresApiTest"></class>
         </classes>
 
     </test>

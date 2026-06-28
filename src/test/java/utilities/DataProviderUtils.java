@@ -17,7 +17,26 @@ public class DataProviderUtils {
 			{"Contact Lenses"},
 			{"Ready reader"},
 			{"Smart glasses"},
-			{"Accessories"}
+			{"accessories"}
 		};
 	}
+	
+	@DataProvider(name="getPincode")
+	public Object[][] getPincodeData()
+	{
+		return new Object[][] {
+			
+			{"400001"},
+			{"421203"},
+			{"110005"},
+			{"600040"},
+			{"282001"},
+			{"411005"},
+			{"500002"},
+			{"560008"}
+		};
+	}
+	
+	
+	
 }

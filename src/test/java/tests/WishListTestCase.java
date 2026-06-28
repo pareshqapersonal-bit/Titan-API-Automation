@@ -14,8 +14,9 @@ import apis.loginAPI;
 import apis.wishlistAPI;
 import base.BaseTest;
 import io.restassured.response.Response;
+import payloads.ProductPayload;
 import payloads.VerifyOtpPayload;
-import payloads.WishListPayload;
+
 import utilities.SessionManager;
 
 
@@ -24,7 +25,7 @@ public class WishListTestCase extends BaseTest {
 	private String productID;
 	Response response;
 	
-	@Test(description = "TC_003-Testing the wishlist list API")
+	@Test(description = "TC_003-Verify the wishlist list API")
 	public void getWatchlistSteps()
 	{
 		/*
@@ -77,7 +78,7 @@ public class WishListTestCase extends BaseTest {
 		
 	}
 	
-	@Test(dependsOnMethods = "getWatchlistSteps",description = "TC_004-Testing the Remove from wishlist API")
+	@Test(dependsOnMethods = "getWatchlistSteps",description = "TC_004-Verify the Remove from wishlist API")
 	public void RemoveFromwishlistSteps()
 	{
 		/*
@@ -130,7 +131,7 @@ public class WishListTestCase extends BaseTest {
 		List<String> productIds =
 		        response.jsonPath().getList("data.product_id");
 		 productID= productIds.get(0);
-		WishListPayload wp= new WishListPayload();
+		 ProductPayload wp= new ProductPayload();
 		wp.setProductId(productID);
 		response= wapi.removeFromFav(reqspec, wp, customerHash,authToken);
 		System.out.println(response.getStatusCode());
@@ -142,7 +143,7 @@ public class WishListTestCase extends BaseTest {
 			
 	}
 	
-	@Test(dependsOnMethods = "RemoveFromwishlistSteps",description = "TC_005-Testing the Add to wishlist API")
+	@Test(dependsOnMethods = "RemoveFromwishlistSteps",description = "TC_005-Verify the Add to wishlist API")
 	public void wishlistSteps()
 	{
 		/*
@@ -191,7 +192,7 @@ public class WishListTestCase extends BaseTest {
 		String authToken =
 		        SessionManager.getauthToken();
 		wishlistAPI wapi = new wishlistAPI();
-		WishListPayload wp= new WishListPayload();
+		ProductPayload wp= new ProductPayload();
 		wp.setProductId(productID);
 		response= wapi.addToFav(reqspec, wp, customerHash,authToken);
 		System.out.println(response.getStatusCode());

@@ -31,10 +31,16 @@ public class TestListener implements ITestListener {
 		                result.getMethod()
 		                      .getMethodName();
 		    }
+		   
 
-		    test.set(
-		            extent.createTest(
-		                    testName));
+		    Object[] params = result.getParameters();
+		    if (params.length > 0) {
+		        testName += " - " + params[0];
+		    }
+
+		    test.set(extent.createTest(testName));
+
+		    
 
 		    System.out.println(
 		            result.getName()
@@ -45,6 +51,18 @@ public class TestListener implements ITestListener {
 	@Override
 	public void onTestSuccess(
 	        ITestResult result) {
+		
+		System.out.println("===== onTestSuccess =====");
+		System.out.println("Test : " + result.getName());
+		System.out.println("Endpoint : " + APILogger.getEndpoint());
+		System.out.println("Request : " + APILogger.getRequest());
+		System.out.println("Status : " + APILogger.getStatusCode());
+		System.out.println("Response Null? " + (APILogger.getResponse() == null));
+		System.out.println("Response Length : " +
+		    (APILogger.getResponse() == null ? 0 : APILogger.getResponse().length()));
+		
+		System.out.println("onTestSuccess called for : "
+	            + result.getName());
 
 		 test.get().pass("Test Passed");
 		   test.get().info("<b>EndPoint:</b><pre> "+APILogger.getEndpoint()+"</pre>");

@@ -18,4 +18,10 @@ public final class Endpoints {
     public static final String getAccessoriesProducts="api/products/get-list/accessories";
     public static final String getReadyReaderProducts="api/products/get-list/ready-readers";
     public static final String getSmartGlassesProducts="api/products/get-list/sunglasses/collection/smart_sunglasses";
+    public static final String getLensDetails="https://adobe-eyeplus.newstore.co.in/api/lens/get-lens-data";
+    public static final String getToCart="api/lens/add-to-cart";
+    public static final String getLensAddons="api/lens/get-lens-addons";
+    public static final String addToCartSun="api/cart/add-to-cart";
+    public static final String getDelData="api/cart/check-delivery";
+    public static final String getStoreDaa="api/products/get-stores";
 }

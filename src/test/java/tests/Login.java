@@ -22,7 +22,7 @@ public class Login extends BaseTest{
 	private String customerHash;
 	loginAPI sendOtp = new loginAPI();
 	
-	@Test(description = "TC_001-Send OTP API testing")
+	@Test(description = "TC_001-Verify Send OTP API ")
 	public void stepsofSendOTP()
 	{
 		VerifyOtpPayload vop = new VerifyOtpPayload();
