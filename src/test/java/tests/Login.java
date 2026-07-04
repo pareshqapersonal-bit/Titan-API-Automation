@@ -42,7 +42,7 @@ public class Login extends BaseTest{
 		
 		VerifyOtpPayload vop= new VerifyOtpPayload();
 		vop.setMoble_no("8698294937");
-		vop.setOtp("254265");
+		vop.setOtp("654321");
 		
 		rs = sendOtp.verifyOtp(reqspec, vop);
 		
