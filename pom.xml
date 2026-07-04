@@ -25,11 +25,7 @@
         <scope>test</scope>
     </dependency>
 
-    <dependency>
-    	<groupId>Com.titan</groupId>
-    	<artifactId>com.titan.eyestage</artifactId>
-    	<version>0.0.1-SNAPSHOT</version>
-    </dependency>
+    
     
   </dependencies>
 </project>
