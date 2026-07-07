@@ -25,4 +25,6 @@ public final class Endpoints {
     public static final String getDelData="api/cart/check-delivery";
     public static final String getStoreDaa="api/products/get-stores";
     public static final String getProductDetails="V2/titan-mobileapi/getProductDetailsOptimized";
+    public static final String verifyAdminToken="V2/titan-mobileapi/getadmintoken";
+
 }

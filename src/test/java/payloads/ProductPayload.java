@@ -14,6 +14,12 @@ public class ProductPayload {
 	private String material="";
 	private String page="";
 	private String pincode="";
+	private String findMyFitFlag="";
+	private String lens_width="";
+	private String bridge_width="";
+	private String temple_length="";
+	
+	
 	
 	public String getProductId()
 	{
@@ -136,5 +142,48 @@ public class ProductPayload {
 	{
 		return pincode;
 	}
+	
+	public void setFintMyFit(String findMyFitFlag)
+	{
+		this.findMyFitFlag = findMyFitFlag;
+	}
+	
+	public String getFindMyFit()
+	{
+		return findMyFitFlag;
+	}
+	
+	public void setLens_width(String lens_width)
+	{
+		this.lens_width= lens_width;
+	}
+	public String getLens_width()
+	{
+		return lens_width;
+	}
+	
+	public void setBridge_width(String bridge_width)
+	{
+		this.bridge_width=bridge_width;
+		
+	}
+	
+	public String getBridge_width()
+	{
+		return bridge_width;
+	}
+	
+	public void settemple_length(String temple_length)
+	{
+		this.temple_length= temple_length;
+	}
+	
+	public String getTemple_length()
+	{
+		return temple_length;
+	}
+			
+		
+			
 	
 }
