@@ -16,7 +16,10 @@ public class ProductDetailsTestAPI extends BaseTest {
 
 		String authToken =
 		        SessionManager.getauthToken();
-		ProductPayload wp= new ProductPayload();
+		ProductPayload payload= new ProductPayload();
+		payload.setSKU();
+		payload.setProductId(authToken);
+		
 		ProductDetailsAPI api = new ProductDetailsAPI();
 		api.getProductDetails(mobileSpec, payload, customerHash, authToken)
 		
