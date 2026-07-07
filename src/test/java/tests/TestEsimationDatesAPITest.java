@@ -27,11 +27,11 @@ public class TestEsimationDatesAPITest extends BaseTest {
 		GetProductListingAPI papi = new GetProductListingAPI();
 		ProductPayload payload = new ProductPayload();
 	
-		response =papi.getProductsAPI(reqspec, "eyeglasses");
+		response =papi.getProductsAPI(webSpec, "eyeglasses");
 		String pSku= response.jsonPath().getString("products[0].product_sku");
 		payload.setSKU(pSku);
 		payload.setPincode(pincode);
-		response=api.checkdel(reqspec, payload);
+		response=api.checkdel(webSpec, payload);
 		System.out.println(response.asPrettyString());
 		ResponseValidator.validateStatusCode(response, 200);
 		ResponseValidator.validateKeyPresent(response, "ship_by");

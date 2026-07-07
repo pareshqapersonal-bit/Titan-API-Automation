@@ -8,7 +8,7 @@ import utilities.APILogger;
 
 public class loginAPI {
 
-	public Response sendOtp(RequestSpecification reqspec, VerifyOtpPayload payload)
+	public Response sendOtp(RequestSpecification webSpec, VerifyOtpPayload payload)
 	{
 		String requestBody =
 		        "{ \"mobile_no\" : \""
@@ -21,7 +21,7 @@ public class loginAPI {
 		APILogger.setEndpoint(Endpoints.sendOTP);
 		
 		Response response= given()
-				.spec(reqspec)
+				.spec(webSpec)
 				.body(payload)
 			.when()
 			    .post(Endpoints.sendOTP);
@@ -34,7 +34,7 @@ public class loginAPI {
 		
 	}
 	
-	public Response verifyOtp(RequestSpecification reqSpec, VerifyOtpPayload payload)
+	public Response verifyOtp(RequestSpecification webSpec, VerifyOtpPayload payload)
 	{
 		String requestBody =
 		        "{ \"mobile_no\" : \""
@@ -45,7 +45,7 @@ public class loginAPI {
 		        requestBody);
 		APILogger.setEndpoint(Endpoints.verifyOTP);
 		Response response= given()
-				.spec(reqSpec)
+				.spec(webSpec)
 				.body(payload)
 			.when()
 			    .post(Endpoints.verifyOTP);

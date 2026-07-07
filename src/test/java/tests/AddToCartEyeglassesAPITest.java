@@ -30,7 +30,8 @@ public class AddToCartEyeglassesAPITest extends BaseTest {
 		GetLensDetailsAPI gl = new GetLensDetailsAPI();
 		ProductPayload wp= new ProductPayload();
 		GetProductListingAPI gp = new GetProductListingAPI();
-		response = gp.getProductsAPI(reqspec,"eyeglasses");
+		System.out.println("Spec value is "+webSpec);
+		response = gp.getProductsAPI(webSpec,"eyeglasses");
 		String SKUText= response.jsonPath().getString("products[0].product_sku");
 		 String productId= response.jsonPath().getString("products[0].product_id");
 		System.out.println("SKU is "+SKUText);
@@ -39,7 +40,7 @@ public class AddToCartEyeglassesAPITest extends BaseTest {
 		
 		
 		 
-		 response=gl.getLensDetails(reqspec, wp,customerHash, authToken );
+		 response=gl.getLensDetails(webSpec, wp,customerHash, authToken );
 		 System.out.println(response.jsonPath().getMap("lens_data"));
 		 System.out.println(response.jsonPath().getMap("lens_data.'Single Vision'"));
 		 System.out.println(response.jsonPath().getList("lens_data.'Single Vision'.high_power"));
@@ -51,7 +52,7 @@ public class AddToCartEyeglassesAPITest extends BaseTest {
 				
 		 wp.setSKU(lensSku);
 		 System.out.println("Payload is "+wp.getSKU());
-		response = gl.getLensAddons(reqspec, wp, customerHash, authToken);
+		response = gl.getLensAddons(webSpec, wp, customerHash, authToken);
 		System.out.println(response.asPrettyString());
 		System.out.println("Lens material is "+response.jsonPath().getString("addons_data.[0].material"));
 		if(response.jsonPath().getString("addons_data.[0].material")==null)
@@ -71,7 +72,7 @@ public class AddToCartEyeglassesAPITest extends BaseTest {
 		 payload.setTopup_coatings("");
 		 payload.setbase_lens_sku(lensSku);
 		 AddToCartAPI atc = new AddToCartAPI();
-		response= atc.addToCartAPI(reqspec, payload, customerHash, authToken);
+		response= atc.addToCartAPI(webSpec, payload, customerHash, authToken);
 		System.out.println(response.asPrettyString());
 		ResponseValidator.validateStatusCode(response, 200);
 		

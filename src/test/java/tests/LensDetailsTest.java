@@ -26,13 +26,13 @@ public class LensDetailsTest extends BaseTest {
 		GetLensDetailsAPI gl = new GetLensDetailsAPI();
 		ProductPayload wp= new ProductPayload();
 		GetProductListingAPI gp = new GetProductListingAPI();
-		response = gp.getProductsAPI(reqspec,"eyeglasses");
+		response = gp.getProductsAPI(webSpec,"eyeglasses");
 		String SKUText= response.jsonPath().getString("products[0].product_sku");
 		System.out.println("SKU is "+SKUText);
 		
 		wp.setSKU(SKUText);
 		
-		 response=gl.getLensDetails(reqspec, wp,customerHash, authToken );
+		 response=gl.getLensDetails(webSpec, wp,customerHash, authToken );
 		System.out.println(response.asPrettyString());
 	}
 

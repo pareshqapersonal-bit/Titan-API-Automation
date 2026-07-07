@@ -11,7 +11,7 @@ import static io.restassured.RestAssured.*;
 public class AddToCartAPI {
 	
 	Response response;
-	public Response addToCartAPI(RequestSpecification rs, ProductPayload payload, String customerHash, String authToken)
+	public Response addToCartAPI(RequestSpecification webSpec, ProductPayload payload, String customerHash, String authToken)
 	{
 		String requestBody =
 				"{\n" +
@@ -29,7 +29,7 @@ public class AddToCartAPI {
 				APILogger.setRequest(requestBody);            
 		
 		response= given()
-				.spec(rs)
+				.spec(webSpec)
 				.header("Origin",
 		                "https://adobe-eyeplus.newstore.co.in")
 		        .header("Referer",

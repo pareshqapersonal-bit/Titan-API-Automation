@@ -28,13 +28,13 @@ public class GetLensAddOnTest extends BaseTest {
 		GetLensDetailsAPI gl = new GetLensDetailsAPI();
 		ProductPayload wp= new ProductPayload();
 		GetProductListingAPI gp = new GetProductListingAPI();
-		response = gp.getProductsAPI(reqspec,"eyeglasses");
+		response = gp.getProductsAPI(webSpec,"eyeglasses");
 		String SKUText= response.jsonPath().getString("products[0].product_sku");
 		System.out.println("SKU is "+SKUText);
 		
 		wp.setSKU(SKUText);
 		
-		 response=gl.getLensDetails(reqspec, wp,customerHash, authToken );
+		 response=gl.getLensDetails(webSpec, wp,customerHash, authToken );
 		 System.out.println(response.jsonPath().getMap("lens_data"));
 		 System.out.println(response.jsonPath().getMap("lens_data.'Single Vision'"));
 		 System.out.println(response.jsonPath().getList("lens_data.'Single Vision'.high_power"));
@@ -46,7 +46,7 @@ public class GetLensAddOnTest extends BaseTest {
 				
 		 wp.setSKU("ST149RW");
 		 System.out.println("Payload is "+wp.getSKU());
-		response = gl.getLensAddons(reqspec, wp, customerHash, authToken);
+		response = gl.getLensAddons(webSpec, wp, customerHash, authToken);
 		System.out.println(response.asPrettyString());
 		System.out.println("Lens material is "+response.jsonPath().getString("addons_data.[0].material"));
 		/*

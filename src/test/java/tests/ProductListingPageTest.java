@@ -17,7 +17,7 @@ public class ProductListingPageTest extends BaseTest {
 	public void productListingTE(String category)
 	{
 		GetProductListingAPI gpa = new GetProductListingAPI();
-		Response response =gpa.getProductsAPI(reqspec, category);
+		Response response =gpa.getProductsAPI(webSpec, category);
 		System.out.println(response.getStatusCode());
 		System.out.println(response.getBody().asPrettyString());
 		assertTrue((response.getStatusCode()==200));
