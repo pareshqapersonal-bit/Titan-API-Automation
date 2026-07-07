@@ -28,7 +28,7 @@ public class AddToCartSunglassesApiTest extends BaseTest{
 		String authToken =
 		        SessionManager.getauthToken();
 		GetProductListingAPI gp = new GetProductListingAPI();
-		response = gp.getProductsAPI(reqspec,"sunglasses");
+		response = gp.getProductsAPI(webSpec,"sunglasses");
 		String SKUText= response.jsonPath().getString("products[0].product_sku");
 		 String productId= response.jsonPath().getString("products[0].product_id");
 		 ProductPayload payload = new ProductPayload();
@@ -36,7 +36,7 @@ public class AddToCartSunglassesApiTest extends BaseTest{
 		 payload.setProductId(productId);
 		 System.out.println(payload.getPage()  + payload.getProductId());
 		 AddToCartAPI atc = new AddToCartAPI();
-		 Response response =atc.addToCartSunglasses(reqspec, payload, customerHash, authToken);
+		 Response response =atc.addToCartSunglasses(webSpec, payload, customerHash, authToken);
 		 System.out.println(response.asPrettyString());
 		 String message = response.jsonPath().getString("item[0].message");
 		 System.out.println("message is "+message);

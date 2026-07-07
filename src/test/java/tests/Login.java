@@ -44,7 +44,7 @@ public class Login extends BaseTest{
 		vop.setMoble_no("8698294937");
 		vop.setOtp("254265");
 		
-		rs = sendOtp.verifyOtp(reqspec, vop);
+		rs = sendOtp.verifyOtp(webSpec, vop);
 		
 		System.out.println(rs.getStatusCode());
 		System.out.println(rs.getBody().asPrettyString());

@@ -69,8 +69,8 @@ public class WishListTestCase extends BaseTest {
 		wishlistAPI wapi = new wishlistAPI();
 		System.out.println("customerHash = " + customerHash);
 		System.out.println("authToken = " + authToken);
-		wapi.getWatchlist(reqspec, customerHash, authToken);
-		response= wapi.getWatchlist(reqspec, customerHash,authToken);
+		wapi.getWatchlist(webSpec, customerHash, authToken);
+		response= wapi.getWatchlist(webSpec, customerHash,authToken);
 		System.out.println(response.getStatusCode());
 		System.out.println(response.getBody().asPrettyString());
 		String status=response.jsonPath().getString("status");
@@ -127,13 +127,14 @@ public class WishListTestCase extends BaseTest {
 		String authToken =
 		        SessionManager.getauthToken();
 		wishlistAPI wapi = new wishlistAPI();
-		response=wapi.getWatchlist(reqspec, customerHash, authToken);
+		response=wapi.getWatchlist(webSpec, customerHash, authToken);
+		System.out.println("Product id response check"+ response);
 		List<String> productIds =
 		        response.jsonPath().getList("data.product_id");
 		 productID= productIds.get(0);
 		 ProductPayload wp= new ProductPayload();
 		wp.setProductId(productID);
-		response= wapi.removeFromFav(reqspec, wp, customerHash,authToken);
+		response= wapi.removeFromFav(webSpec, wp, customerHash,authToken);
 		System.out.println(response.getStatusCode());
 		System.out.println(response.getBody().asPrettyString());
 		String status=response.jsonPath().getString("status");
@@ -194,7 +195,7 @@ public class WishListTestCase extends BaseTest {
 		wishlistAPI wapi = new wishlistAPI();
 		ProductPayload wp= new ProductPayload();
 		wp.setProductId(productID);
-		response= wapi.addToFav(reqspec, wp, customerHash,authToken);
+		response= wapi.addToFav(webSpec, wp, customerHash,authToken);
 		System.out.println(response.getStatusCode());
 		System.out.println(response.getBody().asPrettyString());
 		String status=response.jsonPath().getString("status");

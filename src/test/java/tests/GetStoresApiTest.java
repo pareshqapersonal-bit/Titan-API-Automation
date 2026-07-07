@@ -20,13 +20,13 @@ public class GetStoresApiTest extends BaseTest{
 	{
 		CheckDelDateApi api = new CheckDelDateApi();
 		GetProductListingAPI papi = new GetProductListingAPI();
-		response=  papi.getProductsAPI(reqspec, "eyeglasses");
+		response=  papi.getProductsAPI(webSpec, "eyeglasses");
 		ProductPayload payload = new ProductPayload();
-		response =papi.getProductsAPI(reqspec, "eyeglasses");
+		response =papi.getProductsAPI(webSpec, "eyeglasses");
 		String pSku= response.jsonPath().getString("products[0].product_sku");
 		payload.setSKU(pSku);
 		payload.setPincode(pincode);
-		response=api.getstores(reqspec, payload);
+		response=api.getstores(webSpec, payload);
 		System.out.println(response.asPrettyString());
 		ResponseValidator.validateStatusCode(response, 200);
 		ResponseValidator.validateKeyPresent(response, "storeList");

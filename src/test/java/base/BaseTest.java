@@ -16,7 +16,9 @@ import utilities.SessionManager;
 
 public class BaseTest {
 
-	
+	protected RequestSpecification mobileSpec;
+	protected RequestSpecification backendSpec;
+	protected RequestSpecification webSpec;
 	protected ConfigReader config;
 	protected RequestSpecification reqspec;
 	
@@ -24,23 +26,41 @@ public class BaseTest {
 	public void setUP()
 	{
 		config = new ConfigReader();
-		reqspec = new RequestSpecBuilder()
-				.setBaseUri(config.getProperty("baseUrl"))
-				.setContentType(ContentType.JSON)
-				.build();
-		
+		/*
+		 * reqspec = new RequestSpecBuilder() .setBaseUri(config.getProperty("baseUrl"))
+		 * .setContentType(ContentType.JSON) .build();
+		 */
+		mobileSpec = new RequestSpecBuilder()
+	            .setBaseUri(config.getProperty("mobileBaseUrl"))
+	            .setContentType(ContentType.JSON)
+	            .build();
+
+	    backendSpec = new RequestSpecBuilder()
+	            .setBaseUri(config.getProperty("backendBaseUrl"))
+	            .setContentType(ContentType.JSON)
+	            .build();
+
+	    webSpec = new RequestSpecBuilder()
+	            .setBaseUri(config.getProperty("webBaseUrl"))
+	            .setContentType(ContentType.JSON)
+	            .build();
+
 		loginAPI lapi = new loginAPI();
 
 	    VerifyOtpPayload vop =
 	            new VerifyOtpPayload();
 
 	    vop.setMoble_no("8698294937");
-	    lapi.sendOtp(reqspec, vop);
-
+	    System.out.println(reqspec);
+	    System.out.println(webSpec);
+	    System.out.println(mobileSpec);
+	    System.out.println(backendSpec);
+	    lapi.sendOtp(webSpec, vop);
+     
 	    vop.setOtp("254265");
 
 	    Response response =
-	            lapi.verifyOtp(reqspec, vop);
+	            lapi.verifyOtp(webSpec, vop);
 
 	    SessionManager.setCustomerHash(
 	            response.getCookie(
