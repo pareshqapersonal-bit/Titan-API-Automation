@@ -14,6 +14,9 @@
              <class name="tests.AddToCartSunglassesApiTest"></class>
              <class name="tests.TestEsimationDatesAPITest"></class>
              <class name="tests.GetStoresApiTest"></class>
+             <class name="tests.VerifyAdminTokenAPITest"></class>
+             <class name = "tests.ProductDetailsTestAPI"></class>
+             
         </classes>
 
     </test>
