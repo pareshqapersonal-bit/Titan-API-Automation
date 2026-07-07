@@ -3,6 +3,7 @@ package tests;
 import static io.restassured.RestAssured.*;
 
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.gherkin.model.Given;
@@ -14,6 +15,7 @@ import io.restassured.response.Response;
 import payloads.VerifyOtpPayload;
 import utilities.ConfigReader;
 
+@Listeners(utilities.TestListener.class)
 public class Login extends BaseTest{
 	
 	
@@ -42,7 +44,7 @@ public class Login extends BaseTest{
 		
 		VerifyOtpPayload vop= new VerifyOtpPayload();
 		vop.setMoble_no("8698294937");
-		vop.setOtp("654321");
+		vop.setOtp("254265");
 		
 		rs = sendOtp.verifyOtp(webSpec, vop);
 		
