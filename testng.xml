@@ -5,6 +5,7 @@
     <test name="Regression Tests">
 
         <classes>
+            <class name ="tests.LoginTestAPI"></class>
             <class name="tests.Login"/>
             <class name="tests.WishListTestCase"/>
             <class name="tests.ProductListingPageTest"/>
@@ -16,6 +17,8 @@
              <class name="tests.GetStoresApiTest"></class>
              <class name="tests.VerifyAdminTokenAPITest"></class>
              <class name = "tests.ProductDetailsTestAPI"></class>
+             <class name="tests.GenerateCustomerCartAPITest"></class>
+             <class name="tests.CustomerAddToCart"></class>
              
         </classes>
 

@@ -3,6 +3,7 @@ package tests;
 import static io.restassured.RestAssured.requestSpecification;
 
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import apis.VerifyAdminTokenAPI;
@@ -10,7 +11,7 @@ import apis.loginAPI;
 import base.BaseTest;
 import io.restassured.response.Response;
 import payloads.VerifyOtpPayload;
-
+@Listeners(utilities.TestListener.class)
 public class LoginTestAPI extends BaseTest {
 	Response response;
 	@Test(description = "TC_001-Verify Generate OTP API ")
