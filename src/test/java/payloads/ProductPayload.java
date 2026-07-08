@@ -18,6 +18,9 @@ public class ProductPayload {
 	private String lens_width="";
 	private String bridge_width="";
 	private String temple_length="";
+	private String qty="";
+	private String quote_id="";
+	
 	
 	
 	

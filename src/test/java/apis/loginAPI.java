@@ -66,4 +66,65 @@ public class loginAPI {
 			   .when()
 			    .get(Endpoints.checkSession);
 	}
+	
+	
+	
+	//RestAPI
+
+	public Response generateOTP(RequestSpecification webSpec, VerifyOtpPayload payload, String adminToken)
+	{
+		String requestBody =
+		        "{ \"mobile_no\" : \""
+		        + payload.getMobile_no()
+		        + "\" }";
+
+		APILogger.setRequest(
+		        requestBody);
+		
+		APILogger.setEndpoint(Endpoints.sendOTP);
+		
+		Response response= given()
+				.spec(webSpec)
+				.header("Authorization",adminToken)
+				.header("Content-Type","application/json")
+				.header("Journey","Magento")
+				.body(payload)
+			.when()
+			    .post(Endpoints.generateOTP);
+		
+		APILogger.setStatusCode(response.getStatusCode());
+		APILogger.setResponse(
+	            response.asPrettyString());
+
+	    return response;
+		
+	}
+	
+	
+	public Response verifyRestOtp(RequestSpecification webSpec, VerifyOtpPayload payload, String adminToken)
+	{
+		String requestBody =
+		        "{ \"mobile_no\" : \""
+		        + payload.getMobile_no()
+		        + "\" }";
+
+		APILogger.setRequest(
+		        requestBody);
+		APILogger.setEndpoint(Endpoints.verifyOTP);
+		Response response= given()
+				.spec(webSpec)
+				.header("Authorization",adminToken)
+				.header("Content-Type","application/json")
+				.header("Journey","Magento")
+				.body(payload)
+			.when()
+			    .post(Endpoints.veriftRestOTP);
+		
+		
+		APILogger.setStatusCode(response.getStatusCode());
+		APILogger.setResponse(
+	            response.asPrettyString());
+
+	    return response;
+	}
 }
