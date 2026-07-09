@@ -30,5 +30,7 @@ public final class Endpoints {
     public static final String generateOTP="V2/titan-mobileapi/generate-otp";
     public static final String generateCustomerCart="V2/titan-mobileapi/genratecustomercart";
     public static final String veriftRestOTP="V2/titan-mobileapi/verify-otp";
+    public static final String removeCartItem="V2/titan-mobileapi/removeCartItem";
+    public static final String cartTotal="V2/titan-mobileapi/getcarttotal";
 
 }

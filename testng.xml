@@ -19,6 +19,7 @@
              <class name = "tests.ProductDetailsTestAPI"></class>
              <class name="tests.GenerateCustomerCartAPITest"></class>
              <class name="tests.CustomerAddToCart"></class>
+             <class name="tests.RemoveCartItemTest"></class>
              
         </classes>
 
