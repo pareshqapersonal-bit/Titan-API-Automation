@@ -11,6 +11,7 @@ import apis.loginAPI;
 import base.BaseTest;
 import io.restassured.response.Response;
 import payloads.VerifyOtpPayload;
+import utilities.ResponseValidator;
 @Listeners(utilities.TestListener.class)
 public class LoginTestAPI extends BaseTest {
 	Response response;
@@ -27,6 +28,8 @@ public class LoginTestAPI extends BaseTest {
 		
 		System.out.println(response.getStatusCode());
 		System.out.println(response.getBody());
+		ResponseValidator.validateStatusCode(response, 200);
+		ResponseValidator.validateKeyPresent(response, "message");
 		
 	}
 	
@@ -42,14 +45,15 @@ public class LoginTestAPI extends BaseTest {
 		response =vpa.verifyAdminToken(mobileSpec, vop);
 		String adminToken = response.jsonPath().getString("token");
 		response = lp.verifyRestOtp(mobileSpec, vop, adminToken);
-		
+		ResponseValidator.validateStatusCode(response, 200);
+		ResponseValidator.validateKeyPresent(response, "customer_id");
 		System.out.println(response.getStatusCode());
 		System.out.println(response.getBody().asPrettyString());
 		
 		String customerID = response.jsonPath().getString("customer_id");
 		System.out.println("customer id is"+customerID);
 		
-		Assert.assertNotNull(customerID);
+		
 		
 		
 		

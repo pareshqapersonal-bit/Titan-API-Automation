@@ -21,6 +21,7 @@ import payloads.ExtensionAttributesPayload;
 import payloads.ProductOptionsPayload;
 import payloads.VerifyOtpPayload;
 import utilities.DataProviderUtils;
+import utilities.ResponseValidator;
 
 @Listeners(utilities.TestListener.class)
 public class CartTotalTest extends BaseTest {
@@ -82,7 +83,13 @@ public class CartTotalTest extends BaseTest {
 		cpayload.setCartId(quoteId);
 	
 		response =rcapi.cartTotal(mobileSpec, cpayload, customerToken);
+		String cartTotal= response.jsonPath().getString("res.grand_total");
+		System.out.println("grand total is "+cartTotal);
 		System.out.println("Response is "+response.asPrettyString());
+		ResponseValidator.validateStatusCode(response, 200);
+		ResponseValidator.validateKeyPresent(response, "message");
+		
+		
 		
 	}
 

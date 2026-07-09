@@ -7,6 +7,7 @@ import apis.VerifyAdminTokenAPI;
 import base.BaseTest;
 import io.restassured.response.Response;
 import payloads.VerifyOtpPayload;
+import utilities.ResponseValidator;
 
 @Listeners(utilities.TestListener.class)
 public class VerifyAdminTokenAPITest extends BaseTest{
@@ -18,6 +19,8 @@ public class VerifyAdminTokenAPITest extends BaseTest{
 		VerifyOtpPayload pd = new VerifyOtpPayload();
 		Response response=vApi.verifyAdminToken(mobileSpec, pd);
 		System.out.println("Respnse is "+response.asPrettyString());
+		ResponseValidator.validateStatusCode(response, 200);
+		ResponseValidator.validateKeyPresent(response, "token");
 	}
 
 }

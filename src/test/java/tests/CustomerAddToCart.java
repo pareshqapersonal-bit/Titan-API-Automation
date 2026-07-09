@@ -21,6 +21,7 @@ import payloads.ProductOptionsPayload;
 import payloads.ProductPayload;
 import payloads.VerifyOtpPayload;
 import utilities.DataProviderUtils;
+import utilities.ResponseValidator;
 @Listeners(utilities.TestListener.class)
 public class CustomerAddToCart extends BaseTest {
 	Response response;
@@ -75,6 +76,9 @@ public class CustomerAddToCart extends BaseTest {
 		
 		
 		System.out.println("resposne is "+response.asPrettyString());
+		
+		ResponseValidator.validateStatusCode(response, 200);
+		ResponseValidator.validateKeyPresent(response, "message");
 		
 
 

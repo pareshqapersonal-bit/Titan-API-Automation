@@ -20,7 +20,8 @@
              <class name="tests.GenerateCustomerCartAPITest"></class>
              <class name="tests.CustomerAddToCart"></class>
              <class name="tests.RemoveCartItemTest"></class>
-             
+             <class name="tests.CartTotalTest"></class>
+             <class name="tests.StateDetailsAPITest"></class>
         </classes>
 
     </test>

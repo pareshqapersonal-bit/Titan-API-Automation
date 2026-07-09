@@ -21,6 +21,7 @@ import payloads.ProductOptionsPayload;
 import payloads.RemoveCartItemPayload;
 import payloads.VerifyOtpPayload;
 import utilities.DataProviderUtils;
+import utilities.ResponseValidator;
 
 @Listeners(utilities.TestListener.class)
 public class RemoveCartItemTest extends BaseTest {
@@ -89,6 +90,9 @@ public class RemoveCartItemTest extends BaseTest {
 		RemoveCartItemAPI rca = new  RemoveCartItemAPI();
 				response = rca.removeCartItem(mobileSpec, rPayload, customerToken);
 	    System.out.println("Remove the cart "+response.asPrettyString());
+		ResponseValidator.validateStatusCode(response, 200);
+		ResponseValidator.validateKeyPresent(response, "message");
+		
 		
 
 
