@@ -33,5 +33,7 @@ public final class Endpoints {
     public static final String removeCartItem="V2/titan-mobileapi/removeCartItem";
     public static final String cartTotal="V2/titan-mobileapi/getcarttotal";
     public static final String getStateDetailsapi="V1/directory/countries";
+    public static final String getaddress="V1/customers/me";
+    public static final String getpayment="V2/titan-webapi/RazorpayMethods";
 
 }

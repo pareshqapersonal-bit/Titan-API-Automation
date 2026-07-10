@@ -22,6 +22,8 @@
              <class name="tests.RemoveCartItemTest"></class>
              <class name="tests.CartTotalTest"></class>
              <class name="tests.StateDetailsAPITest"></class>
+             <class name="tests.GetAddressListAPITest"></class>
+             <class name="tests.GetPaymentMethodsAPITest"></class>
         </classes>
 
     </test>
