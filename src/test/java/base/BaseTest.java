@@ -22,6 +22,9 @@ public class BaseTest {
 	protected ConfigReader config;
 	protected RequestSpecification reqspec;
 	
+	protected String testMobileNumber;
+    protected String testOTP;
+	
 	@BeforeClass
 	public void setUP()
 	{
@@ -69,5 +72,9 @@ public class BaseTest {
 	    SessionManager.setauthToken(
 	            response.getCookie(
 	                    "adobe_tep_next_auth_token"));
+	    
+	    
+	    testMobileNumber = config.getProperty("test.mobile.number");
+	    testOTP = config.getProperty("test.mobile.otp");
 	}
 }

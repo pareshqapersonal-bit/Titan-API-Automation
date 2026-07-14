@@ -23,7 +23,7 @@ public class LoginTestAPI extends BaseTest {
 		VerifyAdminTokenAPI vpa = new VerifyAdminTokenAPI();
 		response =vpa.verifyAdminToken(mobileSpec, vop);
 		String adminToken = response.jsonPath().getString("token");
-		vop.setMoble_no("8698294937");
+		vop.setMoble_no(testMobileNumber);
 		response =lp.generateOTP(mobileSpec, vop, adminToken);
 		
 		System.out.println(response.getStatusCode());
@@ -39,12 +39,14 @@ public class LoginTestAPI extends BaseTest {
 	{
 		loginAPI lp = new loginAPI();
 		VerifyOtpPayload vop= new VerifyOtpPayload();
-		vop.setMoble_no("8698294937");
-		vop.setOtp("654321");
+		vop.setMoble_no(testMobileNumber);
+		vop.setOtp(testOTP);
 		VerifyAdminTokenAPI vpa = new VerifyAdminTokenAPI();
 		response =vpa.verifyAdminToken(mobileSpec, vop);
 		String adminToken = response.jsonPath().getString("token");
 		response = lp.verifyRestOtp(mobileSpec, vop, adminToken);
+		System.out.println("Response is "+response.asPrettyString());
+		
 		ResponseValidator.validateStatusCode(response, 200);
 		ResponseValidator.validateKeyPresent(response, "customer_id");
 		System.out.println(response.getStatusCode());
@@ -52,7 +54,6 @@ public class LoginTestAPI extends BaseTest {
 		
 		String customerID = response.jsonPath().getString("customer_id");
 		System.out.println("customer id is"+customerID);
-		
 		
 		
 		

@@ -24,10 +24,10 @@ public class GetAddressListAPITest extends BaseTest {
 		response=vapi.verifyAdminToken(mobileSpec, pd);
 		String adminToken= response.jsonPath().getString("token");
 		loginAPI lapi = new loginAPI();
-		pd.setMoble_no("8779906355");
+		pd.setMoble_no(testMobileNumber);
 		lapi.generateOTP(mobileSpec, pd, adminToken);
-		pd.setMoble_no("8779906355");
-		pd.setOtp("654321");
+		pd.setMoble_no(testMobileNumber);
+		pd.setOtp(testOTP);
 	response =	lapi.verifyRestOtp(mobileSpec, pd, adminToken);
 	String customerToken= response.jsonPath().getString("token");
 	System.out.println(customerToken);
