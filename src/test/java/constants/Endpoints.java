@@ -35,5 +35,7 @@ public final class Endpoints {
     public static final String getStateDetailsapi="V1/directory/countries";
     public static final String getaddress="V1/customers/me";
     public static final String getpayment="V2/titan-webapi/RazorpayMethods";
+    public static final String postPlaceOrder="V2/titan-mobileapi/paymentInformationV2";
+    public static final String getShippingMethod="Check Frame Alignment";
 
 }
