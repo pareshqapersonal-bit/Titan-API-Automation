@@ -4,8 +4,11 @@ import java.util.List;
 import java.util.Map;
 
 import io.restassured.response.Response;
+import payloads.AddressInformationPayload;
 import payloads.AddressPayload;
 import payloads.CustomAttributePayload;
+import payloads.ProductListingPayload;
+import payloads.ShippingInformationPayload;
 
 
 public class PayloadBuilder {
@@ -146,6 +149,47 @@ public class PayloadBuilder {
 
 		return null;
 	}
+	
+	 public static ShippingInformationPayload buildShippingInformation(
+	            Response response) {
+		 
+		 AddressPayload shippingAddress = buildAddress(response, false);
+
+		    AddressInformationPayload addressInfo = new AddressInformationPayload();
+
+		    addressInfo.setShipping_address(shippingAddress);
+		    addressInfo.setShipping_carrier_code("tablerate");
+		    addressInfo.setShipping_method_code("bestway");
+
+		    ShippingInformationPayload payload =
+		            new ShippingInformationPayload();
+
+		    payload.setAddressInformation(addressInfo);
+
+		    return payload;
+	 }
+
+	 
+	 //product list payload 
+	 public static ProductListingPayload buildProductListingPayload(String type) {
+
+		    ProductListingPayload payload = new ProductListingPayload();
+
+		    payload.setType(type);
+		    payload.setPage(1);
+		    payload.setMin_price("");
+		    payload.setMax_price("");
+		    payload.setSelected_price_filter("");
+		    payload.setFilters(List.of());
+		    payload.setSort_by(List.of());
+		    payload.setCategoryId("");
+		    payload.setFindMyFitFlag("0");
+		    payload.setLens_width("");
+		    payload.setBridge_width("");
+		    payload.setTemple_length("");
+
+		    return payload;
+		}
 	
 	
 	

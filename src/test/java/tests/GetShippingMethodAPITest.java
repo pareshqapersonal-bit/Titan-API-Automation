@@ -4,18 +4,23 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import apis.GetAddressListAPI;
+import apis.GetShippingMethodAPI;
 import apis.VerifyAdminTokenAPI;
 import apis.loginAPI;
 import base.BaseTest;
 import io.restassured.response.Response;
+import payloads.AddressInformationPayload;
+import payloads.ShippingInformationPayload;
 import payloads.VerifyOtpPayload;
+import utilities.PayloadBuilder;
 import utilities.ResponseValidator;
 
 @Listeners(utilities.TestListener.class)
-public class GetAddressListAPITest extends BaseTest {
-	
+public class GetShippingMethodAPITest extends BaseTest {
+
 	Response response;
-	@Test(description = "TC_19-Verify Address List API")
+	
+	@Test(description = "TC_16-Verify Shipping method API")
 	public void steps()
 	{
 
@@ -33,10 +38,20 @@ public class GetAddressListAPITest extends BaseTest {
 	System.out.println(customerToken);
 	VerifyOtpPayload pd1 = new VerifyOtpPayload();
 	GetAddressListAPI getaddress= new GetAddressListAPI();
-	response =getaddress.getAddress(mobileSpec, pd1, customerToken);
+	Response addressResponse =getaddress.getAddress(mobileSpec, pd1, customerToken);
 	System.out.println("response is "+response.asPrettyString());
 	ResponseValidator.validateStatusCode(response, 200);
 	
+	
+	ShippingInformationPayload shippingPayload =
+	        PayloadBuilder.buildShippingInformation(addressResponse);
+	
+	GetShippingMethodAPI shipMethod = new GetShippingMethodAPI();
+	response =shipMethod.getShippingMethod(mobileSpec, customerToken, shippingPayload);
+	System.out.println("Shipping method response "+response.asPrettyString());
+	ResponseValidator.validateStatusCode(response, 200);
+	ResponseValidator.validateKeyPresent(response, "payment");
+	
+	
 	}
-
 }

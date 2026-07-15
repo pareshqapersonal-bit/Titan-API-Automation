@@ -8,6 +8,7 @@ import apis.CustomerAddToCartAPI;
 import apis.GenerateCustomerCartAPI;
 import apis.GetAddressListAPI;
 import apis.GetProductListingAPI;
+import apis.GetShippingMethodAPI;
 import apis.PlaceOrderAPI;
 import apis.VerifyAdminTokenAPI;
 import apis.loginAPI;
@@ -19,7 +20,9 @@ import payloads.CartPayload;
 import payloads.CustomOptionsPayload;
 import payloads.ExtensionAttributesPayload;
 import payloads.PlaceOrderPayload;
+import payloads.ProductListingPayload;
 import payloads.ProductOptionsPayload;
+import payloads.ShippingInformationPayload;
 import payloads.VerifyOtpPayload;
 import utilities.PayloadBuilder;
 import utilities.ResponseValidator;
@@ -50,10 +53,14 @@ public class PlaceOrderAPITest extends BaseTest {
 	System.out.println("Response code is "+response.statusCode());
 	System.out.println("Response is "+response.asPrettyString());
 	
+	ProductListingPayload payload =
+	        PayloadBuilder.buildProductListingPayload("sunglasses");
 	GetProductListingAPI gp = new GetProductListingAPI();
-	 response = gp.getProductsAPI(webSpec, "eyeglasses");
-	 String SKUText= response.jsonPath().getString("products[0].product_sku");
-		System.out.println("SKU is "+SKUText);
+	response =gp.getMagentProductListing(mobileSpec, customerToken, payload);
+	System.out.println("Product Listing response "+response.asPrettyString());
+	ResponseValidator.validateStatusCode(response, 200);
+	ResponseValidator.validateKeyPresent(response, "products");
+	String sku= response.jsonPath().getString("products[0].sku");
 		
 		//Payloads
 		CustomOptionsPayload option = new CustomOptionsPayload();
@@ -67,16 +74,16 @@ public class PlaceOrderAPITest extends BaseTest {
 		productOption.setExtension_attributes(ext);
 		
 		CartItemPayload cartItem  = new CartItemPayload();
-		cartItem.setSku(SKUText);
+		cartItem.setSku(sku);
 		cartItem.setQty(1);
 		cartItem.setQuote_id(quoteId);
 		cartItem.setProduct_option(productOption);
 
-		CartPayload payload = new CartPayload();
-		payload.setCartItem(cartItem);
+		CartPayload cartpayload = new CartPayload();
+		cartpayload.setCartItem(cartItem);
 		
 		CustomerAddToCartAPI cacapi = new CustomerAddToCartAPI();
-		response =cacapi.customerAddToCart(mobileSpec, customerToken, payload);
+		response =cacapi.customerAddToCart(mobileSpec, customerToken, cartpayload);
 
 
 	
@@ -91,7 +98,12 @@ public class PlaceOrderAPITest extends BaseTest {
 	
 	
 
-		
+	ShippingInformationPayload shippingPayload =
+	        PayloadBuilder.buildShippingInformation(addressResponse);
+	
+	GetShippingMethodAPI shipMethod = new GetShippingMethodAPI();
+	response =shipMethod.getShippingMethod(mobileSpec, customerToken, shippingPayload);
+	System.out.println("Shipping method response "+response.asPrettyString());
 		
 		AddressPayload billing =
 		        PayloadBuilder.buildAddress(addressResponse, true);
