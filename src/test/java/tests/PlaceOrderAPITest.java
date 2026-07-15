@@ -2,6 +2,7 @@ package tests;
 
 import java.util.List;
 
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import apis.CustomerAddToCartAPI;
@@ -27,10 +28,11 @@ import payloads.VerifyOtpPayload;
 import utilities.PayloadBuilder;
 import utilities.ResponseValidator;
 
+@Listeners(utilities.TestListener.class)
 public class PlaceOrderAPITest extends BaseTest {
 	
 	Response response;
-	@Test
+	@Test(description = "TC_020-Verify the Place Order API")
 	public void steps()
 	{
 		

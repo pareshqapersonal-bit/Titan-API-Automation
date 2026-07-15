@@ -10,6 +10,7 @@ import base.BaseTest;
 import io.restassured.response.Response;
 import payloads.ProductListingPayload;
 import payloads.VerifyOtpPayload;
+import utilities.DataProviderUtils;
 import utilities.PayloadBuilder;
 import utilities.ResponseValidator;
 
@@ -18,8 +19,8 @@ public class GetMagentoProductListingAPITEst extends BaseTest {
 	
 	Response response;
 	
-	@Test(description = "TC_20-Verify Product List API" )
-	public void steps()
+	@Test(dataProvider = "getProducts",  dataProviderClass = DataProviderUtils.class, description = "TC_005-Verify the Product list API" )
+	public void steps(String category)
 	{
 		VerifyOtpPayload pd = new VerifyOtpPayload();
 		VerifyAdminTokenAPI vapi = new VerifyAdminTokenAPI();
@@ -34,7 +35,7 @@ public class GetMagentoProductListingAPITEst extends BaseTest {
 	String customerToken= response.jsonPath().getString("token");
 	
 	ProductListingPayload payload =
-	        PayloadBuilder.buildProductListingPayload("sunglasses");
+	        PayloadBuilder.buildProductListingPayload(category);
 	
 	GetProductListingAPI getProductList = new GetProductListingAPI();
 	response =getProductList.getMagentProductListing(mobileSpec, customerToken, payload);
