@@ -24,6 +24,7 @@
              <class name="tests.GetAddressListAPITest"></class>
              <class name="tests.GetPaymentMethodsAPITest"></class>
              <class name="tests.GetShippingMethodAPITest"></class>
+             <class name="tests.PlaceOrderAPITest"></class>
         </classes>
 
     </test>
