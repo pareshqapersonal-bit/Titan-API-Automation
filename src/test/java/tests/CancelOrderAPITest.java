@@ -2,9 +2,9 @@ package tests;
 
 import java.util.List;
 
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import apis.CancelOrderAPI;
 import apis.CustomerAddToCartAPI;
 import apis.GenerateCustomerCartAPI;
 import apis.GetAddressListAPI;
@@ -30,12 +30,11 @@ import payloads.VerifyOtpPayload;
 import utilities.PayloadBuilder;
 import utilities.ResponseValidator;
 
-@Listeners(utilities.TestListener.class)
-public class GetCustomerOrdersAPITest extends BaseTest{
+public class CancelOrderAPITest extends BaseTest{
 	
-	Response response;
+	Response response;	
 	
-	@Test(description = "TC_021-Verify Customer Order List API")
+	@Test
 	public void steps()
 	{
 		VerifyOtpPayload pd = new VerifyOtpPayload();
@@ -132,7 +131,7 @@ public class GetCustomerOrdersAPITest extends BaseTest{
 		System.out.println("customer id is "+customerId);
 		orderListing.setPage(1);
 		orderListing.setCustomerId(customerId);
-		orderListing.setOrder_Id("TEQ-3000030465");
+		orderListing.setOrder_Id("");
 		
 		  GetCustomerOrdersAPI ordersApi= new GetCustomerOrdersAPI(); 
 		  response  =ordersApi.getCustomerOrders(mobileSpec, customerToken, orderPayload);
@@ -141,10 +140,14 @@ public class GetCustomerOrdersAPITest extends BaseTest{
 		  String customerGroupId = response.jsonPath()
 			        .getString("orders.onlineOrder.items[0].customer_group_id");
 		  System.out.println("Customer_grp_id is "+customerGroupId);
-		 
-	
-	
-	
+		  
+		  orderListing.setCustomerGroupId(customerGroupId);
+		  orderListing.setOrder_Id("14256");
+		  orderListing.setReason("test");
+		  CancelOrderAPI cancel = new CancelOrderAPI();
+		  response =cancel.cancelOrder(mobileSpec, orderListing, customerToken);
+		  System.out.println("cancel order response "+response.asPrettyString());
+		  
 	}
 
 }

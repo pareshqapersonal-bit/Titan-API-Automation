@@ -39,5 +39,6 @@ public final class Endpoints {
     public static final String getShippingMethod="V1/carts/mine/shipping-information";
     public static final String getMagentoProductList="V2/titan-mobileapi/getproductlist";
     public static final String getOrders="V2/titan-mobileapi/customerMyOrderOptimize";
+    public static final String cancelOrdrEndpoint="V2/titan-mobileapi/cancelCustomerOrder";
 
 }
