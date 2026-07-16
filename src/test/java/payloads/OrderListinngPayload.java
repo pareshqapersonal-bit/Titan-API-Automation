@@ -2,18 +2,55 @@ package payloads;
 
 public class OrderListinngPayload {
 	
-	private String page="";
+	private int page=0;
 	private String is_previous="";
 	private String offline_order_no="";
 	private String order_entity_id="";
 	private String order_id="";
+	private String customer_id="";
+	private String customer_group_id="";
+	private String reason="";
 	
-	public void setPage(String page)
+	
+	public void setCustomerGroupId(String customer_group_id)
+	{
+		this.customer_group_id=customer_group_id;
+	}
+	
+	public String getCustomertGroupId()
+	{
+		return customer_group_id;
+	}
+	
+	public void setReason(String reason)
+	{
+		this.reason=reason;
+	}
+	
+	public String getReason()
+	{
+		return reason;
+	}
+	
+	
+	
+	
+	public void setCustomerId(String customer_id )
+	{
+		this.customer_id= customer_id;
+	}
+	
+	public String getCustomerId()
+	{
+		return customer_id;
+	}
+	
+	public void setPage(int page)
 	{
 		this.page=page;
 	}
 	
-	public String getPage()
+	public Integer getPage()
 	{
 		return page;
 	}
