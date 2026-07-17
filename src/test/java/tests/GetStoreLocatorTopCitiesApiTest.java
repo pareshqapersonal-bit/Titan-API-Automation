@@ -17,7 +17,7 @@ public class GetStoreLocatorTopCitiesApiTest extends BaseTest {
 	
 Response response;
 	
-	@Test(description = "TC_001-Verify Store Loactor Top cities API")
+	@Test(description = "TC_026-Verify Store Loactor Top cities API")
 	public void steps()
 	{
 		

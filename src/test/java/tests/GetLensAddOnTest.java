@@ -16,7 +16,7 @@ import utilities.SessionManager;
 public class GetLensAddOnTest extends BaseTest {
 	
 	Response response;
-	@Test(description = "TC_07-Verify the GetAddOnLens API")
+	@Test(description = "TC_009-Verify the GetAddOnLens API")
 	public void getLensAddOnsSteps()
 	{
 		String material;

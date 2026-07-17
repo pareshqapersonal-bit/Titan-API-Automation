@@ -15,7 +15,7 @@ import utilities.ResponseValidator;
 public class GetStoresApiTest extends BaseTest{
 	
 	Response response;
-	@Test(description = "TC_011-Verify the Get Stores Api", dataProvider = "getPincode", dataProviderClass = DataProviderUtils.class)
+	@Test(description = "TC_012-Verify the Get Stores Api", dataProvider = "getPincode", dataProviderClass = DataProviderUtils.class)
 	public void testSteps(String pincode)
 	{
 		CheckDelDateApi api = new CheckDelDateApi();

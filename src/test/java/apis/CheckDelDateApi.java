@@ -20,7 +20,7 @@ public class CheckDelDateApi {
 				"}";
 
 				APILogger.setRequest(requestBody);
-		
+				APILogger.setEndpoint(Endpoints.getDelData);
 		response= given()
 				.spec(rs)
 				.body(payload)
@@ -47,7 +47,7 @@ public class CheckDelDateApi {
 				"}";
 
 				APILogger.setRequest(requestBody);
-		
+				APILogger.setEndpoint(Endpoints.getStoreDaa);
 		response= given()
 				.spec(rs)
 				.body(payload)

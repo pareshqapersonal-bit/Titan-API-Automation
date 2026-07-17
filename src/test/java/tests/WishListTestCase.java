@@ -25,7 +25,7 @@ public class WishListTestCase extends BaseTest {
 	private String productID;
 	Response response;
 	
-	@Test(description = "TC_003-Verify the wishlist list API")
+	@Test(description = "TC_004-Verify the wishlist list API")
 	public void getWatchlistSteps()
 	{
 		/*
@@ -78,7 +78,7 @@ public class WishListTestCase extends BaseTest {
 		
 	}
 	
-	@Test(dependsOnMethods = "getWatchlistSteps",description = "TC_004-Verify the Remove from wishlist API")
+	@Test(dependsOnMethods = "getWatchlistSteps",description = "TC_005-Verify the Remove from wishlist API")
 	public void RemoveFromwishlistSteps()
 	{
 		/*
@@ -144,7 +144,7 @@ public class WishListTestCase extends BaseTest {
 			
 	}
 	
-	@Test(dependsOnMethods = "RemoveFromwishlistSteps",description = "TC_005-Verify the Add to wishlist API")
+	@Test(dependsOnMethods = "RemoveFromwishlistSteps",description = "TC_006-Verify the Add to wishlist API")
 	public void wishlistSteps()
 	{
 		/*

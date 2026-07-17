@@ -71,6 +71,8 @@ public class PlaceOrderAPI {
 		
 		APILogger.setRequest(
 		        requestBody);
+		APILogger.setEndpoint(Endpoints.postPlaceOrder);
+		
 		
 	   Response	response = given()
 				.spec(rs)

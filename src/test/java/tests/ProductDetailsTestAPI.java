@@ -40,7 +40,7 @@ public class ProductDetailsTestAPI extends BaseTest {
 		GetProductListingAPI gp = new GetProductListingAPI();
 		response = vapi.verifyAdminToken(mobileSpec, pd);
 		String AdminToken = response.jsonPath().getString("token");
-		response = gp.getProductsAPI(webSpec,category);
+		response = gp.getProductsAPI(webSpec,"Powered Sunglasses");
 		
 		String SKUText= response.jsonPath().getString("products[0].product_sku");
 		 String productId= response.jsonPath().getString("products[0].product_id");
@@ -57,6 +57,15 @@ public class ProductDetailsTestAPI extends BaseTest {
 		
 		response=api.getProductDetails(mobileSpec, payload, AdminToken);
 		System.out.println("PDP response is "+response.prettyPrint());
+		String optionId = response.jsonPath()
+		        .getString("productData.options[0].option_id");
+
+		String optionValue = response.jsonPath()
+		        .getString("productData.options[0].values[0].option_type_id");
+		
+		
+		System.out.println("option id id "+optionId);
+		System.out.println("option value id "+optionValue);
 
 		
 	}

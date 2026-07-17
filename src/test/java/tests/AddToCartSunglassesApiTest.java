@@ -18,7 +18,7 @@ import utilities.SessionManager;
 public class AddToCartSunglassesApiTest extends BaseTest{
 	Response response;
 	
-  @Test(description = "TC_09-Verify Add to Cart sunglasseses API")
+  @Test(description = "TC_010-Verify Add to Cart sunglasseses API")
   public void addToCartSteps()
   {
 	  String material="";

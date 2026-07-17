@@ -37,6 +37,7 @@ public class CustomerAddToCartAPI {
 		
 		APILogger.setRequest(requestBody);   
 		
+		APILogger.setEndpoint(Endpoints.customerAddToCart);
 		
 		
                  Response response= given()

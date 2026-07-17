@@ -32,7 +32,7 @@ import utilities.ResponseValidator;
 public class PlaceOrderAPITest extends BaseTest {
 	
 	Response response;
-	@Test(description = "TC_020-Verify the Place Order API")
+	@Test(description = "TC_02-Verify the Place Order API")
 	public void steps()
 	{
 		

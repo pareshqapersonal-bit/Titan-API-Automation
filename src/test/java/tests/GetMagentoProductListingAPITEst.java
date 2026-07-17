@@ -19,7 +19,7 @@ public class GetMagentoProductListingAPITEst extends BaseTest {
 	
 	Response response;
 	
-	@Test(dataProvider = "getProducts",  dataProviderClass = DataProviderUtils.class, description = "TC_005-Verify the Product list API" )
+	@Test(dataProvider = "getProducts",  dataProviderClass = DataProviderUtils.class, description = "TC_007-Verify the Product list API" )
 	public void steps(String category)
 	{
 		VerifyOtpPayload pd = new VerifyOtpPayload();

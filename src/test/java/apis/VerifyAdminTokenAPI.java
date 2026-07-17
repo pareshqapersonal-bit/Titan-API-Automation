@@ -17,6 +17,7 @@ public class VerifyAdminTokenAPI {
 		String requestBody =
 				"{}";
 		APILogger.setRequest(requestBody);   
+		APILogger.setEndpoint(Endpoints.verifyAdminToken);
 		Response response= given()
 				.spec(rs)
 				.header("Authorization", "Bearer 36f1240d47a29cf572957cb87f69d5e4")

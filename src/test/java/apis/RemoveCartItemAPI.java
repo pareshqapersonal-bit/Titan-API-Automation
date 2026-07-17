@@ -27,7 +27,7 @@ public class RemoveCartItemAPI {
 		        "}";
 		
 		APILogger.setRequest(requestBody);
-		
+		APILogger.setEndpoint(Endpoints.removeCartItem);
 		Response response = given()
 				 .spec(rs)
 				 .header("Authorization", "Bearer " + customerToken)

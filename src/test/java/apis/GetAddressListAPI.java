@@ -18,6 +18,7 @@ public class GetAddressListAPI {
 		String requestBody =
 				"{}";
 		APILogger.setRequest(requestBody);   
+		APILogger.setEndpoint(Endpoints.getaddress);
 		response= given()
 				.spec(rs)
 				 .header("Authorization", "Bearer " + customerToken)

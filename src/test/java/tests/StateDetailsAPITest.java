@@ -15,7 +15,7 @@ public class StateDetailsAPITest extends BaseTest{
 	
 Response response;
 
-@Test(description = "TC_16-Verify State list API")
+@Test(description = "TC_019-Verify State list API")
 public void steps()
 {  
 	VerifyAdminTokenAPI adminapi = new VerifyAdminTokenAPI();

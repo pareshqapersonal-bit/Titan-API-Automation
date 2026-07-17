@@ -21,6 +21,7 @@ public class GeneralInfoAPI {
 		        + "\" }";
 		
 		APILogger.setRequest(requestBody);
+		APILogger.setEndpoint(Endpoints.getInfoEndpoints);
 		response = given()
 				.spec(rs)
 				 .header("Authorization", "Bearer " + customerToken)

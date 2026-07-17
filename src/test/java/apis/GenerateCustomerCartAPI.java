@@ -16,6 +16,7 @@ public class GenerateCustomerCartAPI {
 		String requestBody =
 				"{}";
 		APILogger.setRequest(requestBody);   
+		APILogger.setEndpoint(Endpoints.generateCustomerCart);
                  Response response= given()
                           .spec(backendSpec)
                           .header("Authorization", "Bearer " + bearerToken)

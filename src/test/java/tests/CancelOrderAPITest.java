@@ -2,6 +2,7 @@ package tests;
 
 import java.util.List;
 
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import apis.CancelOrderAPI;
@@ -29,12 +30,12 @@ import payloads.ShippingInformationPayload;
 import payloads.VerifyOtpPayload;
 import utilities.PayloadBuilder;
 import utilities.ResponseValidator;
-
+@Listeners(utilities.TestListener.class)
 public class CancelOrderAPITest extends BaseTest{
 	
 	Response response;	
 	
-	@Test
+	@Test(description = "TC_024-Verify Cancel Order API")
 	public void steps()
 	{
 		VerifyOtpPayload pd = new VerifyOtpPayload();

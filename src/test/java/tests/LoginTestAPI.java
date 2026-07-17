@@ -15,7 +15,7 @@ import utilities.ResponseValidator;
 @Listeners(utilities.TestListener.class)
 public class LoginTestAPI extends BaseTest {
 	Response response;
-	@Test(description = "TC_001-Verify Generate OTP API ")
+	@Test(description = "TC_002-Verify Generate OTP API ")
 	public void stepsofgenerateOTP()
 	{
 		VerifyOtpPayload vop = new VerifyOtpPayload();
@@ -34,7 +34,7 @@ public class LoginTestAPI extends BaseTest {
 	}
 	
 	
-	@Test(dependsOnMethods = "stepsofgenerateOTP", description = "TC_002-Verify OTP API testing")
+	@Test(dependsOnMethods = "stepsofgenerateOTP", description = "TC_003-Verify OTP API testing")
 	public void steps()
 	{
 		loginAPI lp = new loginAPI();

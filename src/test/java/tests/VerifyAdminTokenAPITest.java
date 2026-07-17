@@ -12,7 +12,7 @@ import utilities.ResponseValidator;
 @Listeners(utilities.TestListener.class)
 public class VerifyAdminTokenAPITest extends BaseTest{
 	
-	@Test(description = "TC_12-Verify Admin token API")
+	@Test(description = "TC_013-Verify Admin token API")
 	public void steps()
 	{
 		VerifyAdminTokenAPI vApi= new VerifyAdminTokenAPI();

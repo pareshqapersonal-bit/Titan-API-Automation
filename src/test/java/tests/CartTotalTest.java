@@ -27,7 +27,7 @@ import utilities.ResponseValidator;
 public class CartTotalTest extends BaseTest {
 	
 	Response response;
-	@Test (dataProvider = "getProducts",  dataProviderClass = DataProviderUtils.class,description = "TC_17-Verify Cart Total API" )
+	@Test (dataProvider = "getProducts",  dataProviderClass = DataProviderUtils.class,description = "TC_018-Verify Cart Total API" )
 	public void steps(String category)
 	{
 		VerifyOtpPayload pd = new VerifyOtpPayload();

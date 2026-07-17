@@ -28,6 +28,7 @@ public class ProductDetailsAPI {
 				"}";
 
 				APILogger.setRequest(requestBody);   
+				APILogger.setEndpoint(Endpoints.getProductDetails);
 		Response response = given()
 				.spec(rs)
 				. header("Authorization",

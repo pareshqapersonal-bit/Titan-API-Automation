@@ -16,7 +16,7 @@ public class ProfileMenuApiTest extends BaseTest{
 	
 	Response response;
 	
-	@Test(description = "TC_001-Verify Profile Menu API")
+	@Test(description = "TC_025-Verify Profile Menu API")
 	public void steps()
 	{
 		

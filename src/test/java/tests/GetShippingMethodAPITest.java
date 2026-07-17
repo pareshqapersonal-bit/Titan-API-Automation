@@ -20,7 +20,7 @@ public class GetShippingMethodAPITest extends BaseTest {
 
 	Response response;
 	
-	@Test(description = "TC_16-Verify Shipping method API")
+	@Test(description = "TC_022-Verify Shipping method API")
 	public void steps()
 	{
 

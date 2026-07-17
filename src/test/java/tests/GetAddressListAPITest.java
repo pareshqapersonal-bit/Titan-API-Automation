@@ -15,7 +15,7 @@ import utilities.ResponseValidator;
 public class GetAddressListAPITest extends BaseTest {
 	
 	Response response;
-	@Test(description = "TC_19-Verify Address List API")
+	@Test(description = "TC_020-Verify Address List API")
 	public void steps()
 	{
 

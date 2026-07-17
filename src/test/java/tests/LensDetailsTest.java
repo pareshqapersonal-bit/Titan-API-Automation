@@ -15,7 +15,7 @@ import utilities.SessionManager;
 public class LensDetailsTest extends BaseTest {
 	Response response;
 	
-	@Test(description = "TC_06-Verify Lens Details API")
+	@Test(description = "TC_008-Verify Lens Details API")
 	public void getLensDetailsAPISteps()
 	{
 		String customerHash =

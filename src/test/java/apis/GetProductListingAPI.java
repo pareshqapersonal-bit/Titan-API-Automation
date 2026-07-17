@@ -137,7 +137,7 @@ public class GetProductListingAPI {
 		
 		APILogger.setRequest(
 		        requestBody);
-		
+		APILogger.setEndpoint(Endpoints.getMagentoProductList);
 		
 		response = given()
 				    .spec(rs)

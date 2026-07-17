@@ -15,6 +15,8 @@ public class GetPaymentMethodsAPI {
 		String requestBody =
 				"{}";
 		APILogger.setRequest(requestBody);  
+		
+		APILogger.setEndpoint(Endpoints.getpayment);
 		response= given()
 				.spec(rs)
 				 .header("Content-Type",

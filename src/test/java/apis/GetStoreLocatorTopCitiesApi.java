@@ -16,6 +16,7 @@ public class GetStoreLocatorTopCitiesApi {
 		String requestBody =
 				"{}";
 		APILogger.setRequest(requestBody);  
+		APILogger.setEndpoint(Endpoints.getstorelocatortopcities);
 		response = given()
 				.spec(rs)
 				 .header("Authorization", "Bearer " + customerToken)

@@ -16,7 +16,7 @@ public class GetPaymentMethodsAPITest extends BaseTest {
 
 	Response response;
 	
-	@Test
+	@Test(description = "TC_021-Verify Get Payment Methods API")
 	public void steps()
 	{
 		VerifyOtpPayload pd = new VerifyOtpPayload();

@@ -23,6 +23,7 @@ public class GetCustomerOrdersAPI {
 		        "  \"order_id\": \"" + payload.getOrder_ID() + "\"\n" +
 		        "}";
 		APILogger.setRequest(requestBody);
+		APILogger.setEndpoint(Endpoints.getOrders);
 		response = given()
 				.spec(rs)
 				.header("Authorization", "Bearer " + customerToken)
@@ -36,10 +37,14 @@ public class GetCustomerOrdersAPI {
 		        .log().all()
 		        .extract()
 		        .response();
-		
+		String responseCode=response.asPrettyString();
+		if(responseCode.length()>10000)
+		{
+			responseCode= responseCode.substring(0,10000);
+		}
 		APILogger.setStatusCode(response.getStatusCode());
 		APILogger.setResponse(
-	           response.asPrettyString());
+				responseCode);
 		return response;
 
 	}

@@ -54,7 +54,7 @@ public class GetShippingMethodAPI  {
 		        "}";
 		
 		APILogger.setRequest(requestBody);   
-		
+		APILogger.setEndpoint(Endpoints.getShippingMethod);
 		response = given()
 				.spec(rs)
 				.header("Authorization", "Bearer " + cutomerToken)

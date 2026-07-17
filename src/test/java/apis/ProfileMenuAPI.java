@@ -19,6 +19,7 @@ public class ProfileMenuAPI {
 		String requestBody =
 				"{}";
 		APILogger.setRequest(requestBody);  
+		APILogger.setEndpoint(Endpoints.getProfilrMenuEndpoint);
 		response = given()
 				.spec(rs)
 				 .header("Authorization", "Bearer " + customerToken)

@@ -4,14 +4,19 @@ import constants.Endpoints;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import payloads.VerifyOtpPayload;
+import utilities.APILogger;
 
 import static io.restassured.RestAssured.*;
 
 public class StateDetailsAPI {
-	
+	Response response;
 	public Response getStateDetails(RequestSpecification rs, String customerToken, VerifyOtpPayload payload)
 	{
-		return given()
+		String requestBody =
+				"{}";
+		APILogger.setRequest(requestBody);  
+		APILogger.setEndpoint(Endpoints.getStateDetailsapi);
+		response= given()
                   .spec(rs)
                   .header("Authorization", customerToken)
                   .header("Content-Type",
@@ -19,7 +24,16 @@ public class StateDetailsAPI {
   		        .header("Journey","Magento")
   		          .body(payload)
                 .when()
-                    .get(Endpoints.getStateDetailsapi);
+                    .get(Endpoints.getStateDetailsapi)
+                    .then()
+    		        .log().all()
+    		        .extract()
+    		        .response();
+    	APILogger.setStatusCode(response.getStatusCode());
+    	APILogger.setResponse(
+              response.asPrettyString());
+
+    	return response;
 	}
 
 }

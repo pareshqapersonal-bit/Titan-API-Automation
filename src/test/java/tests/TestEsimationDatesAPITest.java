@@ -20,7 +20,7 @@ public class TestEsimationDatesAPITest extends BaseTest {
   Response response;
 	
    
-	@Test(description = "TC_010-Verify the Check delivery date API", dataProvider = "getPincode", dataProviderClass = DataProviderUtils.class)
+	@Test(description = "TC_011-Verify the Check delivery date API", dataProvider = "getPincode", dataProviderClass = DataProviderUtils.class)
 	public void testSteps(String pincode)
 	{
 		CheckDelDateApi api = new CheckDelDateApi();

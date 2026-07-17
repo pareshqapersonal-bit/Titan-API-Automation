@@ -27,7 +27,7 @@ public class AddToCartAPI {
 				"}";
 
 				APILogger.setRequest(requestBody);            
-		
+				APILogger.setEndpoint(Endpoints.getToCart);
 		response= given()
 				.spec(webSpec)
 				.header("Origin",

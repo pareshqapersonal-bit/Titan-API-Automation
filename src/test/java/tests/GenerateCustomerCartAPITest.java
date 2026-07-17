@@ -14,7 +14,7 @@ import payloads.VerifyOtpPayload;
 public class GenerateCustomerCartAPITest extends BaseTest{
 
 	Response response;
-	@Test(description = "TC_014-Verify Generate Cart API ")
+	@Test(description = "TC_015-Verify Generate Cart API ")
 	public void steps()
 	{
 		VerifyOtpPayload pd = new VerifyOtpPayload();
