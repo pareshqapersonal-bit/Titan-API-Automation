@@ -5,6 +5,7 @@
     <test name="Regression Tests">
 
         <classes>
+            <class name="tests.GetInfoTest"></class>
             <class name ="tests.LoginTestAPI"></class>
             <class name="tests.WishListTestCase"/>
             <class name="tests.GetMagentoProductListingAPITEst"/>
@@ -25,6 +26,9 @@
              <class name="tests.GetPaymentMethodsAPITest"></class>
              <class name="tests.GetShippingMethodAPITest"></class>
              <class name="tests.PlaceOrderAPITest"></class>
+             <class name="tests.CancelOrderAPITest"></class>
+             <class name="tests.ProfileMenuApiTest"></class>
+             <class name="tests.GetStoreLocatorTopCitiesApiTest"></class>
         </classes>
 
     </test>

@@ -40,5 +40,8 @@ public final class Endpoints {
     public static final String getMagentoProductList="V2/titan-mobileapi/getproductlist";
     public static final String getOrders="V2/titan-mobileapi/customerMyOrderOptimize";
     public static final String cancelOrdrEndpoint="V2/titan-mobileapi/cancelCustomerOrder";
+    public static final String getInfoEndpoints="V2/titan-mobileapi/genralInfo";
+    public static final String getProfilrMenuEndpoint="V2/titan-mobileapi/myProfileMenu";
+    public static final String getstorelocatortopcities="V2/titan-mobileapi/getstorelocatortopcities";
 
 }
