@@ -29,7 +29,7 @@
              <class name="tests.CancelOrderAPITest"></class>
              <class name="tests.ProfileMenuApiTest"></class>
              <class name="tests.GetStoreLocatorTopCitiesApiTest"></class>
-             <class name="tests.getProductReviewTest"></class>
+             <class name="tests.GetProductReviewTest"></class>
         </classes>
 
     </test>
