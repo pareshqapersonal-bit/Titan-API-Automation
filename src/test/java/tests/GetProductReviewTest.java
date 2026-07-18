@@ -4,24 +4,26 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import apis.GetProductListingAPI;
+import apis.GetProductReviewAPi;
 import apis.VerifyAdminTokenAPI;
 import apis.loginAPI;
 import base.BaseTest;
 import io.restassured.response.Response;
 import payloads.ProductListingPayload;
+import payloads.ProductPayload;
 import payloads.VerifyOtpPayload;
 import utilities.DataProviderUtils;
 import utilities.PayloadBuilder;
 import utilities.ResponseValidator;
 
 @Listeners(utilities.TestListener.class)
-public class GetMagentoProductListingAPITEst extends BaseTest {
+public class GetProductReviewTest extends BaseTest {
 	
 	Response response;
-	
-	@Test(dataProvider = "getProducts",  dataProviderClass = DataProviderUtils.class, description = "TC_007-Verify the Product list API" )
-	public void steps(String category)
+	@Test(dataProvider = "getProducts",  dataProviderClass = DataProviderUtils.class, description = "TC_027-Verify the Product reviews API" )
+	public void getProductReviewTest(String category)
 	{
+		
 		VerifyOtpPayload pd = new VerifyOtpPayload();
 		VerifyAdminTokenAPI vapi = new VerifyAdminTokenAPI();
 		response=vapi.verifyAdminToken(mobileSpec, pd);
@@ -34,11 +36,13 @@ public class GetMagentoProductListingAPITEst extends BaseTest {
 	response =	lapi.verifyRestOtp(mobileSpec, pd, adminToken);
 	String customerToken= response.jsonPath().getString("token");
 	
-	ProductListingPayload payload =
+	
+
+	ProductListingPayload ProductListingpayload =
 	        PayloadBuilder.buildProductListingPayload(category);
 	
 	GetProductListingAPI getProductList = new GetProductListingAPI();
-	response =getProductList.getMagentProductListing(mobileSpec, customerToken, payload);
+	response =getProductList.getMagentProductListing(mobileSpec, customerToken, ProductListingpayload);
 	System.out.println("Product Listing response "+response.asPrettyString());
 	ResponseValidator.validateStatusCode(response, 200);
 	ResponseValidator.validateKeyPresent(response, "products");
@@ -47,6 +51,17 @@ public class GetMagentoProductListingAPITEst extends BaseTest {
 	System.out.println("Product sku is "+sku);
 	System.out.println("Product id is "+productId);
 	
+	
+		ProductPayload productPayload = new ProductPayload();
+		productPayload.setProductId(productId);
+		productPayload.setSKU(sku);
+		
+		
+		
+		GetProductReviewAPi reviewApi = new GetProductReviewAPi();
+		response = reviewApi.getProductReview(mobileSpec, customerToken, productPayload);
+		System.out.println("Response code is "+response.asPrettyString());
+		ResponseValidator.validateStatusCode(response, 200);
 	}
 
 }
